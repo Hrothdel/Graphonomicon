@@ -24,9 +24,13 @@ function draw_graph(){
       posY = middleY + Math.sin(angle)*distance;
 
       ctx.beginPath();
+
+      ctx.fillStyle = "#3ee";
       ctx.arc(posX, posY, radius, 0, Math.PI*2);
+      ctx.fill();
+      ctx.fillStyle = "#fff";
       ctx.fillText(i+1, posX-fontSize/3, posY+fontSize/3);
-      ctx.stroke();
+
 
       angle += angle_increment;
   }
