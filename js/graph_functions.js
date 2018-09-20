@@ -5,15 +5,15 @@ const fontSize = 30;
 
 const canvas = document.getElementById("mainCanvas"),
       ctx = canvas.getContext("2d");
-ctx.lineWidth = 5;
-ctx.font = fontSize + "px Arial";
-
 let node_nr = 6;
 let angle_increment;
 let distance = 200, radius = 40;
 let posX, posY, angle;
 
 function draw_graph(){
+  ctx.lineWidth = 5;
+  ctx.font = fontSize + "px Arial";
+
   ctx.clearRect(0, 0, width, height);
 
   angle_increment = Math.PI*2/node_nr;
@@ -72,5 +72,3 @@ function connect_nodes(node_a, node_b){
              middleY + Math.sin(angle_increment*node_b)*distance);
   ctx.stroke();
 }
-
-draw_graph();
