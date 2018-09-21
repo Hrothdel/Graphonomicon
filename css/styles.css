@@ -7,13 +7,31 @@ body {
 
 #control {
 	display: flex;
-	align items: center;
+	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 
 	margin: 30px;
 	width: 700px;
+
+	background-color: #eee;
 }
 
 #mainCanvas {
 	border: 3px solid #aaa;
+}
+
+#matrix_container {
+	border-collapse: collapse;
+}
+
+.matrix_element {
+	text-align: center;
+}
+
+.matrix_button {
+	margin: auto;
+	padding: auto;
+	width: 30px;
+	height: auto;
 }

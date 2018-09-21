@@ -37,20 +37,6 @@ function draw_graph(){
   }
 }
 
-function add_node(){
-  node_nr++;
-
-  draw_graph();
-}
-
-function remove_node(){
-  if(node_nr){
-    node_nr--;
-
-    draw_graph();
-  }
-}
-
 function connect_nodes(node_a, node_b){
   node_a--;
   node_b--;

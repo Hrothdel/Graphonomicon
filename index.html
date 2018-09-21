@@ -8,15 +8,18 @@
 
 	<body>
 		<section id="control">
-			<button type="button" onclick="draw_graph()">Display</button>
-			<button type="button" onclick="add_node()">++</button>
-			<button type="button" onclick="remove_node()">--</button>
+			<section id="main_buttons_container">
+				<button type="button" onclick="draw_graph()">Display</button>
+				<button type="button" onclick="add_node()">++</button>
+				<button type="button" onclick="remove_node()">--</button>
+			</section>
 		</section>
 
 		<canvas id="mainCanvas" height="700" width="700">
 		</canvas>
 
 		<script src="js/graph_functions.js"></script>
+		<script src="js/matrix_functions.js"></script>
 		<script src="js/main_script.js"></script>
 	</body>
 </html>
