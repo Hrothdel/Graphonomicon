@@ -10,6 +10,20 @@ let angle_increment;
 let distance = 200, radius = 40;
 let posX, posY, angle;
 
+let neighbour_matrix = [];
+
+function initialize_matrix(){
+  for(let i = 0; i < node_nr; i++){
+    neighbour_matrix[i] = [];
+    for(let j = 0; j < node_nr; j++){
+      neighbour_matrix[i][j] = 0;
+      console.log(neighbour_matrix[i][j]);
+    }
+  }
+
+  neighbour_matrix[1][2] = 1;
+}
+
 function draw_graph(){
   ctx.lineWidth = 5;
   ctx.font = fontSize + "px Arial";
@@ -19,7 +33,13 @@ function draw_graph(){
   angle_increment = Math.PI*2/node_nr;
   angle = 0;
 
-  connect_nodes(2, 5);
+  for(let i = 0; i < node_nr; i++){
+    for(let j = 0; j < node_nr; j++){
+      if(neighbour_matrix[i][j] == 1){
+        connect_nodes(i+1, j+1);
+      }
+    }
+  }
 
   for(let i = 0; i < node_nr; i++){
       posX = middleX + Math.cos(angle)*distance;

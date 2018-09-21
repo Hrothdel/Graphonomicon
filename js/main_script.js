@@ -16,5 +16,6 @@ function remove_node(){
   }
 }
 
+initialize_matrix();
 add_matrix();
 draw_graph();
