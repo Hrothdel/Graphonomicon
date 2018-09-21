@@ -2,6 +2,8 @@ function add_node(){
   node_nr++;
 
   $("#matrix_container").remove();
+
+  initialize_to_size(node_nr);
   add_matrix();
   draw_graph();
 }

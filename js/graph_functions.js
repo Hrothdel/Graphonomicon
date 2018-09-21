@@ -17,11 +17,20 @@ function initialize_matrix(){
     neighbour_matrix[i] = [];
     for(let j = 0; j < node_nr; j++){
       neighbour_matrix[i][j] = 0;
-      console.log(neighbour_matrix[i][j]);
     }
   }
 
   neighbour_matrix[1][2] = 1;
+}
+
+function initialize_to_size(index){
+  if(!neighbour_matrix[index-1]){
+    neighbour_matrix[index-1] = [];
+
+    for(let i = 0; i < index; i ++){
+      neighbour_matrix[index-1] = 0;
+    }
+  }
 }
 
 function draw_graph(){
