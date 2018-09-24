@@ -19,8 +19,6 @@ function initialize_matrix(){
       neighbour_matrix[i][j] = 0;
     }
   }
-
-  neighbour_matrix[1][2] = 1;
 }
 
 function initialize_to_size(index){
@@ -28,9 +26,21 @@ function initialize_to_size(index){
     neighbour_matrix[index-1] = [];
 
     for(let i = 0; i < index; i ++){
-      neighbour_matrix[index-1] = 0;
+      neighbour_matrix[index-1][i] = 0;
+      neighbour_matrix[i][index-1] = 0;
     }
   }
+}
+
+function toggle_connection(x, y){
+  if(neighbour_matrix[x][y]){
+    neighbour_matrix[x][y] = 0;
+  } else {
+    neighbour_matrix[x][y] = 1;
+  }
+  $(`#matrix_button-${x*node_nr+y+1}`).text(neighbour_matrix[x][y]);
+
+  draw_graph();
 }
 
 function draw_graph(){

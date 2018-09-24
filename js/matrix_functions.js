@@ -20,7 +20,8 @@ function add_matrix(){
 
     for(let j = 0; j < node_nr; j++){
       let index = i*node_nr + j+1;
-      row.append(`<td id="matrix_button_container-${index}" class="matrix_element"><button id="matrix_button-${index}" class="matrix_button">0</button></td>`);
+      row.append(`<td id="matrix_button_container-${index}" class="matrix_element">
+        <button id="matrix_button-${index}" class="matrix_button" onclick="toggle_connection(${i}, ${j})">${neighbour_matrix[i][j]}</button></td>`);
     }
   }
 }
