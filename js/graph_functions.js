@@ -1,17 +1,3 @@
-const height = 700, width = 700;
-const middleX = height/2, middleY = width/2;
-
-const fontSize = 30;
-
-const canvas = document.getElementById("mainCanvas"),
-      ctx = canvas.getContext("2d");
-let node_nr = 6;
-let angle_increment;
-let distance = 200, radius = 40;
-let posX, posY, angle;
-
-let neighbour_matrix = [];
-
 function initialize_matrix(){
   for(let i = 0; i < node_nr; i++){
     neighbour_matrix[i] = [];
