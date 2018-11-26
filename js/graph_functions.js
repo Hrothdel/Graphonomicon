@@ -90,21 +90,23 @@ function draw_graph(){
 function connect_nodes(node_a, node_b){
   node_a--;
   node_b--;
-  let start = angle_increment * node_a,
-      end   = angle_increment * node_b,
-      between = (end-start)/2;
+  let start   = angle_increment * node_a,
+      end     = angle_increment * node_b,
+      firstX  = middleX + Math.cos(start)*distance,
+      firstY  = middleY + Math.sin(start)*distance,
+      secondX = middleX + Math.cos(end)*distance,
+      secondY = middleY + Math.sin(end)*distance,
+      bezierOffset = 40, // distance between points and control points
+      cpx1    = middleX + Math.cos(start)*(distance - bezierOffset), // control points
+      cpy1    = middleY + Math.sin(start)*(distance - bezierOffset),
+      cpx2    = middleX + Math.cos(end)*(distance - bezierOffset),
+      cpy2    = middleY + Math.sin(end)*(distance - bezierOffset);
 
+  ctx.strokeStyle = "#000";
   ctx.beginPath();
-  ctx.moveTo(middleX + Math.cos(angle_increment*node_a)*distance,
-             middleY + Math.sin(angle_increment*node_a)*distance);
 
-  let bezierOffset = 100;
-  let cpx1 = middleX + Math.cos(start)*(distance - bezierOffset),
-      cpy1 = middleY + Math.sin(start)*(distance - bezierOffset),
-      cpx2 = middleX + Math.cos(end)*(distance - bezierOffset),
-      cpy2 = middleY + Math.sin(end)*(distance - bezierOffset);
+  ctx.moveTo(firstX, firstY);
+  ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, secondX, secondY);
 
-  ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, middleX + Math.cos(angle_increment*node_b)*distance,
-             middleY + Math.sin(angle_increment*node_b)*distance);
   ctx.stroke();
 }
