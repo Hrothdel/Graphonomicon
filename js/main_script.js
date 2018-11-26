@@ -12,6 +12,14 @@ let posX, posY, angle;
 
 let neighbour_matrix = [];
 
+let tree = 1;
+
+let tree_rows = [
+  [0],
+  [1, 2, 4],
+  [3, 5]
+];
+
 function add_node(){
   node_nr++;
 
@@ -32,6 +40,14 @@ function remove_node(){
   }
 }
 
+function draw(){
+  if(tree){
+    draw_tree();
+  } else {
+    draw_graph();
+  }
+}
+
 initialize_matrix();
 add_matrix();
-draw_graph();
+draw();
