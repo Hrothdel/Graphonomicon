@@ -27,7 +27,7 @@ function add_node(){
 
   initialize_to_size(node_nr);
   add_matrix();
-  draw_graph();
+  draw();
 }
 
 function remove_node(){
@@ -36,7 +36,7 @@ function remove_node(){
 
     $("#matrix_container").remove();
     add_matrix();
-    draw_graph();
+    draw();
   }
 }
 
