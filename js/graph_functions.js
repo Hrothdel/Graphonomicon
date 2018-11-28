@@ -41,6 +41,8 @@ function toggle_connection(x, y){
 }
 
 function draw_graph(){
+  let posX, posY, angle;
+
   ctx.lineWidth = 5;
   ctx.font = fontSize + "px Arial";
 
@@ -58,18 +60,18 @@ function draw_graph(){
   }
 
   for(let i = 0; i < node_nr; i++){
-      posX = middleX + Math.cos(angle)*distance;
-      posY = middleY + Math.sin(angle)*distance;
+    posX = middleX + Math.cos(angle)*distance;
+    posY = middleY + Math.sin(angle)*distance;
 
-      ctx.beginPath();
+    ctx.beginPath();
 
-      ctx.fillStyle = "#3ee";
-      ctx.arc(posX, posY, radius, 0, Math.PI*2);
-      ctx.fill();
-      ctx.fillStyle = "#fff";
-      ctx.fillText(i+1, posX-fontSize/3, posY+fontSize/3);
+    ctx.fillStyle = "#3ee";
+    ctx.arc(posX, posY, radius, 0, Math.PI*2);
+    ctx.fill();
+    ctx.fillStyle = "#fff";
+    ctx.fillText(i+1, posX-fontSize/3, posY+fontSize/3);
 
-      angle += angle_increment;
+    angle += angle_increment;
   }
 }
 

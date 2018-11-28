@@ -1,5 +1,6 @@
 function draw_tree(){
-  let verticalPadding, horizontalPadding
+  let posX, posY,
+      verticalPadding, horizontalPadding
       verticalSpacing = 130,
       horizontalSpacing = 120;
 

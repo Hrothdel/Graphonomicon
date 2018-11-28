@@ -5,10 +5,10 @@ const fontSize = 30;
 
 const canvas = document.getElementById("mainCanvas"),
       ctx = canvas.getContext("2d");
+
 let node_nr = 6;
 let angle_increment;
 let distance = 200, radius = 40;
-let posX, posY, angle;
 
 let neighbour_matrix = [];
 
