@@ -20,6 +20,24 @@ let tree_rows = [
   [3, 5]
 ];
 
+let children = [
+  [1, 2, 4],
+  [],
+  [],
+  [],
+  [3, 5],
+  []
+];
+
+let tree_position = [
+  {"x": 0, "y": 0},
+  {"x": 0, "y": 1},
+  {"x": 1, "y": 1},
+  {"x": 0, "y": 2},
+  {"x": 2, "y": 1},
+  {"x": 1, "y": 2}
+];
+
 function add_node(){
   node_nr++;
 
