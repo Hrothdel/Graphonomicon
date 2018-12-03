@@ -7,9 +7,9 @@ function draw_tree_connection(parent, child,
                 (tree_position[parent].y * radius * 2) +
                 (tree_position[parent].y * verticalSpacing),
       parentX = parentHorizontalPadding + radius +
-                (tree_position[parent].x * verticalSpacing),
+                (tree_position[parent].x * horizontalSpacing),
       childX  = childHorizontalPadding + radius +
-                (tree_position[child].x * verticalSpacing),
+                (tree_position[child].x * horizontalSpacing),
       childY  = parentY + verticalSpacing + radius * 2;
 
   ctx.beginPath();
