@@ -37,7 +37,7 @@ function toggle_connection(x, y){
   update_button_matrix_position(x, y);
   update_button_matrix_position(y, x);
 
-  draw_graph();
+  draw();
 }
 
 function draw_graph(){
