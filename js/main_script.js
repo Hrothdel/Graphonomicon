@@ -14,11 +14,15 @@ let neighbour_matrix = [];
 
 let tree = 1;
 
+let root = 0;
+
 let tree_rows = [
   [0],
   [1, 2, 4],
   [3, 5]
 ];
+
+let parents;
 
 let children = [
   [1, 2, 4],

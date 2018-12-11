@@ -66,3 +66,31 @@ function draw_tree(){
     }
   }
 }
+
+function update_tree_parents(){
+  let done = false,
+      stack = [];
+
+  parents = [];
+  parents[root] = -1;
+  stack[0] = root;
+
+  while(!done){
+    if(stack.length){
+      current_node = stack.pop();
+
+      for(let i = 0; i < node_nr; i++){
+        if(neighbour_matrix[current_node][i] && parents[i] == undefined){
+          parents[i] = current_node;
+          stack.push(i);
+        }
+      }
+    } else {
+      done = true;
+    }
+  }
+}
+
+function update_tree_information(){
+  update_tree_parents();
+}
