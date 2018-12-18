@@ -91,6 +91,31 @@ function update_tree_parents(){
   }
 }
 
+function clear_tree_children(){
+  for(let i = 0; i < node_nr; i++){
+    children[i] = [];
+  }
+}
+
+function update_tree_children(){
+  clear_tree_children();
+
+  for(let i = 0; i < node_nr; i++){
+    if(parents[i] != -1){
+      children[parents[i]].push(i);
+    }
+  }
+}
+
 function update_tree_information(){
+  neighbour_matrix = [
+    [0, 1, 1, 0, 1, 0],
+    [1, 0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0],
+    [1, 0, 0, 1, 0, 1],
+    [0, 0, 0, 0, 1, 0]
+  ];
   update_tree_parents();
+  update_tree_children();
 }
