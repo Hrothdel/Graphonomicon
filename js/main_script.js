@@ -66,6 +66,7 @@ function draw(){
   ctx.clearRect(0, 0, width, height);
 
   if(tree){
+    update_tree_information();
     draw_tree();
   } else {
     draw_graph();
