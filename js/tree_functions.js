@@ -131,6 +131,16 @@ function update_tree_rows() {
   }
 }
 
+function update_tree_position(){
+  tree_position = [];
+
+  for(let i = 0; i < tree_rows.length; i++){
+    for(let j = 0; j < tree_rows[i].length; j++){
+      tree_position[tree_rows[i][j]] = {"x": j, "y": i};
+    }
+  }
+}
+
 function update_tree_information(){
   neighbour_matrix = [
     [0, 1, 1, 0, 1, 0],
@@ -143,4 +153,5 @@ function update_tree_information(){
   update_tree_parents();
   update_tree_children();
   update_tree_rows();
+  update_tree_position();
 }
