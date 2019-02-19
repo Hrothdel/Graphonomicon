@@ -46,8 +46,6 @@ function draw_graph(){
   ctx.lineWidth = 5;
   ctx.font = fontSize + "px Arial";
 
-  ctx.clearRect(0, 0, width, height);
-
   angle_increment = Math.PI*2/node_nr;
   angle = 0;
 

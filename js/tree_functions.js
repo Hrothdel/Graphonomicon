@@ -2,7 +2,8 @@ function draw_tree_connection(parent, child,
                               verticalPadding, parentHorizontalPadding,
                               verticalSpacing, horizontalSpacing){
   let childHorizontalPadding = (width - 2 * radius -
-                horizontalSpacing * (tree_rows[tree_position[child].y].length - 1)) / 2,
+                horizontalSpacing *
+                (tree_rows[tree_position[child].y].length - 1)) / 2,
       parentY = verticalPadding + radius +
                 (tree_position[parent].y * radius * 2) +
                 (tree_position[parent].y * verticalSpacing),
@@ -41,17 +42,21 @@ function draw_tree(){
       verticalSpacing = 130,
       horizontalSpacing = 120;
 
-  verticalPadding = (height - radius * 2 * tree_rows.length - verticalSpacing * (tree_rows.length - 1)) / 2;
+  verticalPadding = (height - radius * 2 * tree_rows.length -
+                    verticalSpacing * (tree_rows.length - 1)) / 2;
 
   ctx.font = fontSize + "px Arial";
 
   for(let i = 0; i < tree_rows.length; i++){
-    horizontalPadding = (width - 2 * radius - horizontalSpacing * (tree_rows[i].length - 1)) / 2;
+    horizontalPadding = (width - 2 * radius -
+                        horizontalSpacing * (tree_rows[i].length - 1)) / 2;
 
-    draw_row_connections(i, verticalPadding, horizontalPadding, verticalSpacing, horizontalSpacing);
+    draw_row_connections(i, verticalPadding, horizontalPadding,
+                        verticalSpacing, horizontalSpacing);
 
     posX = horizontalPadding + radius;
-    posY = verticalPadding + radius + (i * radius * 2)  + (i * verticalSpacing);
+    posY = verticalPadding + radius + (i * radius * 2)  +
+          (i * verticalSpacing);
 
     for(let j = 0; j < tree_rows[i].length; j++){
       ctx.beginPath();
@@ -75,18 +80,14 @@ function update_tree_parents(){
   parents[root] = -1;
   stack[0] = root;
 
-  while(!done){
-    if(stack.length){
-      current_node = stack.pop();
+  while(stack.length){
+    current_node = stack.pop();
 
-      for(let i = 0; i < node_nr; i++){
-        if(neighbour_matrix[current_node][i] && parents[i] == undefined){
-          parents[i] = current_node;
-          stack.push(i);
-        }
+    for(let i = 0; i < node_nr; i++){
+      if(neighbour_matrix[current_node][i] && parents[i] == undefined){
+        parents[i] = current_node;
+        stack.push(i);
       }
-    } else {
-      done = true;
     }
   }
 }
@@ -142,14 +143,6 @@ function update_tree_position(){
 }
 
 function update_tree_information(){
-  neighbour_matrix = [
-    [0, 1, 1, 0, 1, 0],
-    [1, 0, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 1, 0],
-    [1, 0, 0, 1, 0, 1],
-    [0, 0, 0, 0, 1, 0]
-  ];
   update_tree_parents();
   update_tree_children();
   update_tree_rows();

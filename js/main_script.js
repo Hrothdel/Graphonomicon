@@ -63,6 +63,8 @@ function remove_node(){
 }
 
 function draw(){
+  ctx.clearRect(0, 0, width, height);
+
   if(tree){
     draw_tree();
   } else {
