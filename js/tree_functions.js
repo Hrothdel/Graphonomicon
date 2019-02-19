@@ -107,6 +107,30 @@ function update_tree_children(){
   }
 }
 
+function update_tree_rows() {
+  let current_row_nodes = [],
+      current_row_number = 0,
+      next_row_nodes = [];
+
+  tree_rows = [];
+  current_row_nodes.push(root);
+
+  while(current_row_nodes.length > 0 && current_row_number < 20){
+    tree_rows[current_row_number] = current_row_nodes;
+    next_row_nodes = [];
+
+    for(let i = 0; i < current_row_nodes.length; i++){
+      let current_node = current_row_nodes[i];
+
+      for(let j = 0; j < children[current_node].length; j++){
+        next_row_nodes.push(children[current_node][j]);
+      }
+    }
+    current_row_nodes = next_row_nodes;
+    current_row_number++;
+  }
+}
+
 function update_tree_information(){
   neighbour_matrix = [
     [0, 1, 1, 0, 1, 0],
@@ -118,4 +142,5 @@ function update_tree_information(){
   ];
   update_tree_parents();
   update_tree_children();
+  update_tree_rows();
 }
