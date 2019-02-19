@@ -102,7 +102,7 @@ function update_tree_children(){
   clear_tree_children();
 
   for(let i = 0; i < node_nr; i++){
-    if(parents[i] != -1){
+    if(parents[i] != -1 && children[parents[i]]){
       children[parents[i]].push(i);
     }
   }
