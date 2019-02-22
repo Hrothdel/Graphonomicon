@@ -99,6 +99,8 @@ function clear_tree_children(){
 }
 
 function update_tree_children(){
+  update_tree_parents();
+
   clear_tree_children();
 
   for(let i = 0; i < node_nr; i++){
@@ -109,6 +111,8 @@ function update_tree_children(){
 }
 
 function update_tree_rows() {
+  update_tree_children();
+
   let current_row_nodes = [],
       current_row_number = 0,
       next_row_nodes = [];
@@ -133,6 +137,8 @@ function update_tree_rows() {
 }
 
 function update_tree_position(){
+  update_tree_rows();
+
   tree_position = [];
 
   for(let i = 0; i < tree_rows.length; i++){
@@ -143,8 +149,5 @@ function update_tree_position(){
 }
 
 function update_tree_information(){
-  update_tree_parents();
-  update_tree_children();
-  update_tree_rows();
   update_tree_position();
 }
