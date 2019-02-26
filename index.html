@@ -8,16 +8,18 @@
 	</head>
 
 	<body>
-		<section id="control">
-			<section id="main_buttons_container">
-				<button type="button" onclick="add_node()">++</button>
-				<button type="button" onclick="remove_node()">--</button>
-				<button type="button" onclick="update_tree_information()">Update tree</button>
+		<section id="main_container">
+			<section id="control">
+				<section id="main_buttons_container">
+					<button type="button" onclick="add_node()">++</button>
+					<button type="button" onclick="remove_node()">--</button>
+					<button type="button" onclick="update_tree_information()">Update tree</button>
+				</section>
 			</section>
-		</section>
 
-		<canvas id="mainCanvas" height="700" width="700">
-		</canvas>
+			<canvas id="mainCanvas" height="700" width="700">
+			</canvas>
+		</section>
 
 		<script src="js/graph_functions.js"></script>
 		<script src="js/tree_functions.js"></script>
