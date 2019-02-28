@@ -1,7 +1,7 @@
 function add_matrix(){
   let matrix_container, row;
 
-  $('#matrix_group').append('<table id="matrix_container"></table>');
+  $('#matrix_section').append('<table id="matrix_container"></table>');
   matrix_container = $('#matrix_container');
 
   matrix_container.append('<tr id="matrix_number_row"></tr>')

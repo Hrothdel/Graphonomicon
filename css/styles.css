@@ -41,6 +41,22 @@
 	white-space:nowrap;
 }
 
+.collapsible {
+	cursor: pointer;
+}
+
+.collapsible:after {
+	content: ' \02795'; /* plus sign */
+}
+
+.collapsible.active:after {
+	content: ' \02796'; /* minus sign */
+}
+
+.collapsed {
+	display: none;
+}
+
 #mainCanvas {
 	border: 3px solid #aaa;
 	margin: 3%;

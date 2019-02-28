@@ -75,4 +75,5 @@ function draw(){
 
 initialize_matrix();
 add_matrix();
+add_collapsible_listners();
 draw();

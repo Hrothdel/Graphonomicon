@@ -11,7 +11,7 @@
 		<section id="main_container">
 			<section id="control">
 				<section class="control_group">
-					<h2 class="control_header">Graph settings</h2>
+					<button class="control_header collapsible active">Graph settings</button>
 					<section class="control_button_group">
 						<button class="control_button" type="button" onclick="add_node()">++</button>
 						<button class="control_button" type="button" onclick="remove_node()">--</button>
@@ -19,7 +19,9 @@
 					</section>
 				</section>
 				<section class="control_group" id="matrix_group">
-					<h2 class="control_header">Neighbour matrix</h2>
+					<button class="control_header collapsible">Neighbour matrix</button>
+					<section id="matrix_section">
+					</section>
 				</section>
 			</section>
 
@@ -30,6 +32,7 @@
 		<script src="js/graph_functions.js"></script>
 		<script src="js/tree_functions.js"></script>
 		<script src="js/matrix_functions.js"></script>
+		<script src="js/general_functions.js"></script>
 		<script src="js/main_script.js"></script>
 	</body>
 </html>
