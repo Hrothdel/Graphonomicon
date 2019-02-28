@@ -41,6 +41,13 @@
 	white-space:nowrap;
 }
 
+.control_header {
+	background-color: #fff;
+	border: none;
+
+	font-size: 2em;
+}
+
 .collapsible {
 	cursor: pointer;
 }
