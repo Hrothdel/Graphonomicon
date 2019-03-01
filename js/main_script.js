@@ -12,7 +12,7 @@ let distance = 200, radius = 40;
 
 let neighbour_matrix = [];
 
-let tree = 1;
+let tree = 0, directed = 1;
 
 let root = 0;
 
@@ -71,6 +71,11 @@ function draw(){
   } else {
     draw_graph();
   }
+}
+
+function toggle_directed(){
+  directed = !directed;
+  tree = 0;
 }
 
 initialize_matrix();
