@@ -32,10 +32,13 @@ function update_button_matrix_position(x, y){
 
 function toggle_connection(x, y){
   toggle_position(x, y);
-  toggle_position(y, x);
 
   update_button_matrix_position(x, y);
-  update_button_matrix_position(y, x);
+
+  if(!directed){
+    toggle_position(y, x);
+    update_button_matrix_position(y, x);
+  }
 
   draw();
 }
