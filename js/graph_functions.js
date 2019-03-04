@@ -55,7 +55,7 @@ function draw_graph(){
   for(let i = 0; i < node_nr; i++){
     for(let j = 0; j < node_nr; j++){
       if(neighbour_matrix[i][j] == 1){
-        connect_nodes(i+1, j+1);
+        connect_nodes(i+1, j+1, 80);
       }
     }
   }
@@ -76,7 +76,7 @@ function draw_graph(){
   }
 }
 
-function connect_nodes(node_a, node_b){
+function connect_nodes(node_a, node_b, bezierOffset){
   node_a--;
   node_b--;
   let start   = angle_increment * node_a,
@@ -85,7 +85,6 @@ function connect_nodes(node_a, node_b){
       firstY  = middleY + Math.sin(start)*distance,
       secondX = middleX + Math.cos(end)*distance,
       secondY = middleY + Math.sin(end)*distance,
-      bezierOffset = 40, // distance between points and control points
       cpx1    = middleX + Math.cos(start)*(distance - bezierOffset), // control points
       cpy1    = middleY + Math.sin(start)*(distance - bezierOffset),
       cpx2    = middleX + Math.cos(end)*(distance - bezierOffset),
