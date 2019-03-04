@@ -43,15 +43,7 @@ function toggle_connection(x, y){
   draw();
 }
 
-function draw_graph(){
-  let posX, posY, angle;
-
-  ctx.lineWidth = 5;
-  ctx.font = fontSize + "px Arial";
-
-  angle_increment = Math.PI*2/node_nr;
-  angle = 0;
-
+function draw_graph_connections(){
   for(let i = 0; i < node_nr; i++){
     for(let j = 0; j < node_nr; j++){
       if(neighbour_matrix[i][j] == 1){
@@ -59,6 +51,16 @@ function draw_graph(){
       }
     }
   }
+}
+
+function draw_graph_nodes(){
+  let posX, posY, angle;
+
+  ctx.lineWidth = 5;
+  ctx.font = fontSize + "px Arial";
+
+  angle_increment = Math.PI*2/node_nr;
+  angle = 0;
 
   for(let i = 0; i < node_nr; i++){
     posX = middleX + Math.cos(angle)*distance;
@@ -74,6 +76,11 @@ function draw_graph(){
 
     angle += angle_increment;
   }
+}
+
+function draw_graph(){
+  draw_graph_connections();
+  draw_graph_nodes();
 }
 
 function connect_nodes(node_a, node_b, bezierOffset){
