@@ -73,11 +73,6 @@ function draw(){
   }
 }
 
-function toggle_directed(){
-  directed = !directed;
-  tree = 0;
-}
-
 initialize_matrix();
 add_matrix();
 add_collapsible_listners();

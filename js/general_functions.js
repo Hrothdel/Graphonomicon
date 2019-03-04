@@ -14,3 +14,8 @@ function add_collapsible_listners(){
     }
   }
 }
+
+function toggle_directed(){
+  directed = !directed;
+  tree = 0;
+}
