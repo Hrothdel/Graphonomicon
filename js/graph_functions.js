@@ -44,10 +44,15 @@ function toggle_connection(x, y){
 }
 
 function draw_graph_connections(){
+  let bezierOffset = 80;
+  if(directed){
+    bezierOffset = 0;
+  }
+
   for(let i = 0; i < node_nr; i++){
     for(let j = 0; j < node_nr; j++){
       if(neighbour_matrix[i][j] == 1){
-        connect_nodes(i+1, j+1, 80);
+        connect_nodes(i+1, j+1, bezierOffset);
       }
     }
   }
