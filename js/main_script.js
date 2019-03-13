@@ -75,7 +75,12 @@ function draw(){
   }
 }
 
+function set_directed_checkbox(){
+  $("#directed_checkbox").prop("checked", directed);
+}
+
 initialize_matrix();
 add_matrix();
 add_collapsible_listners();
+set_directed_checkbox();
 draw();
