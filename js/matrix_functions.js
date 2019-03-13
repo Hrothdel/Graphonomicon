@@ -19,9 +19,14 @@ function add_matrix(){
     row.append(`<td id="matrix_column_number-${i+1}" class="matrix_element">${i+1}</td>`);
 
     for(let j = 0; j < node_nr; j++){
-      let index = i*node_nr + j+1;
+      let index = i*node_nr + j+1, button_properties = "";
+
+      if(i == j){
+        button_properties += 'disabled = "disabled"';
+      }
+
       row.append(`<td id="matrix_button_container-${index}" class="matrix_element">
-        <button id="matrix_button-${index}" class="matrix_button" onclick="toggle_connection(${i}, ${j})">${neighbour_matrix[i][j]}</button></td>`);
+        <button id="matrix_button-${index}" class="matrix_button" onclick="toggle_connection(${i}, ${j})" ${button_properties}>${neighbour_matrix[i][j]}</button></td>`);
     }
   }
 }
