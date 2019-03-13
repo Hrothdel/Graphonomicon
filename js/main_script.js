@@ -42,6 +42,8 @@ let tree_position = [
   {"x": 1, "y": 2}
 ];
 
+let arrow_color = "#f77";
+
 function add_node(){
   node_nr++;
 

@@ -43,6 +43,52 @@ function toggle_connection(x, y){
   draw();
 }
 
+function draw_arrow(node_a, node_b,
+                    arrow_size, arrow_angle,
+                    arrow_distance, percentage){
+  let start   = angle_increment * node_a,
+      end     = angle_increment * node_b,
+      firstX  = middleX + Math.cos(start) * distance,
+      firstY  = middleY + Math.sin(start) * distance
+      secondX = middleX + Math.cos(end) * distance,
+      secondY = middleY + Math.sin(end) * distance;
+
+  let line_angle = Math.atan2(secondY-firstY, secondX-firstX);
+
+  if(percentage){
+    let deltaX = secondX - firstX,
+        deltaY = secondY - firstY,
+        line_length = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    arrow_distance = line_length * (arrow_distance / 100);
+  }
+
+  let point1X = firstX + Math.cos(line_angle) * arrow_distance,
+      point1Y = firstY + Math.sin(line_angle) * arrow_distance,
+      point2X = point1X - Math.cos(line_angle + arrow_angle) * arrow_size,
+      point2Y = point1Y - Math.sin(line_angle + arrow_angle) * arrow_size,
+      point3X = point1X - Math.cos(line_angle - arrow_angle) * arrow_size,
+      point3Y = point1Y - Math.sin(line_angle - arrow_angle) * arrow_size;
+
+  ctx.strokeStyle = arrow_color;
+  ctx.beginPath();
+  ctx.moveTo(point1X, point1Y);
+  ctx.lineTo(point2X, point2Y);
+  ctx.moveTo(point1X, point1Y);
+  ctx.lineTo(point3X, point3Y);
+
+  ctx.stroke();
+}
+
+function draw_graph_arrows(){
+  for(let i = 0; i < node_nr; i++){
+    for(let j = 0; j < node_nr; j++){
+      if(neighbour_matrix[i][j]){
+        draw_arrow(i, j, 20, Math.PI/6, 65, true);
+      }
+    }
+  }
+}
+
 function draw_graph_connections(){
   let bezierOffset = 80;
   if(directed){
@@ -85,6 +131,9 @@ function draw_graph_nodes(){
 
 function draw_graph(){
   draw_graph_connections();
+  if(directed){
+    draw_graph_arrows();
+  }
   draw_graph_nodes();
 }
 
