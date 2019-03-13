@@ -110,7 +110,6 @@ function draw_graph_nodes(){
   ctx.lineWidth = 5;
   ctx.font = fontSize + "px Arial";
 
-  angle_increment = Math.PI*2/node_nr;
   angle = 0;
 
   for(let i = 0; i < node_nr; i++){
@@ -130,6 +129,7 @@ function draw_graph_nodes(){
 }
 
 function draw_graph(){
+  angle_increment = Math.PI*2/node_nr;
   draw_graph_connections();
   if(directed){
     draw_graph_arrows();
