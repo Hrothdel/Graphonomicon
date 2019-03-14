@@ -27,7 +27,7 @@
 
 .control_button_group {
 	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: row wrap;
 	justify-content: center;
 
 	width: 100%;
