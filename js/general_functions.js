@@ -64,6 +64,20 @@ function remove_node(){
   }
 }
 
+function fill_graph(){
+  for(let i = 0; i < node_nr; i++){
+    for(let j = 0; j < node_nr; j++){
+      if(i != j){
+        neighbour_matrix[i][j] = 1;
+
+        update_button_matrix_position(i, j);
+      }
+    }
+  }
+
+  draw();
+}
+
 function draw(){
   ctx.clearRect(0, 0, width, height);
 
