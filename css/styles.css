@@ -25,7 +25,7 @@
 	align-items: center;
 }
 
-.control_button_group{
+.control_button_group {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
@@ -35,7 +35,7 @@
 	margin-bottom: 10%;
 }
 
-.control_button{
+.control_button {
 	margin: 0px 3%;
 
 	white-space:nowrap;

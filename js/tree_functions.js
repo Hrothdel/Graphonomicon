@@ -110,7 +110,7 @@ function update_tree_children(){
   }
 }
 
-function update_tree_rows() {
+function update_tree_rows(){
   update_tree_children();
 
   let current_row_nodes = [],

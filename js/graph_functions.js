@@ -21,7 +21,7 @@ function initialize_to_size(index){
 function toggle_position(x, y){
   if(neighbour_matrix[x][y]){
     neighbour_matrix[x][y] = 0;
-  } else {
+  } else{
     neighbour_matrix[x][y] = 1;
   }
 }
