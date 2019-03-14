@@ -15,7 +15,42 @@ function add_collapsible_listners(){
   }
 }
 
+function set_directed_checkbox(){
+  $("#directed_checkbox").prop("checked", directed);
+}
+
 function toggle_directed(){
   directed = !directed;
   tree = 0;
+}
+
+function add_node(){
+  node_nr++;
+
+  $("#matrix_container").remove();
+
+  initialize_to_size(node_nr);
+  add_matrix();
+  draw();
+}
+
+function remove_node(){
+  if(node_nr){
+    node_nr--;
+
+    $("#matrix_container").remove();
+    add_matrix();
+    draw();
+  }
+}
+
+function draw(){
+  ctx.clearRect(0, 0, width, height);
+
+  if(tree){
+    update_tree_information();
+    draw_tree();
+  } else {
+    draw_graph();
+  }
 }
