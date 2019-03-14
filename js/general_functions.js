@@ -19,6 +19,10 @@ function set_directed_checkbox(){
   $("#directed_checkbox").prop("checked", directed);
 }
 
+function set_tree_checkbox(){
+  $("#tree_checkbox").prop("checked", tree);
+}
+
 function toggle_directed(){
   tree = 0;
   if(directed){
@@ -27,6 +31,15 @@ function toggle_directed(){
   } else{
     directed = 1;
   }
+
+  draw();
+}
+
+function toggle_tree(){
+  if(!tree && !directed){
+    toggle_directed();
+  }
+  tree = !tree;
 
   draw();
 }
