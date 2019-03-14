@@ -159,3 +159,17 @@ function connect_nodes(node_a, node_b, bezierOffset){
 
   ctx.stroke();
 }
+
+function convert_directed_connections(){
+  for(let i = 0; i < node_nr; i++){
+    for(let j = i; j < node_nr; j++){
+      if(neighbour_matrix[i][j] || neighbour_matrix[j][i]){
+        neighbour_matrix[i][j] = 1;
+        neighbour_matrix[j][i] = 1;
+
+        update_button_matrix_position(i, j);
+        update_button_matrix_position(j, i);
+      }
+    }
+  }
+}

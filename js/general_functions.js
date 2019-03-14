@@ -20,8 +20,15 @@ function set_directed_checkbox(){
 }
 
 function toggle_directed(){
-  directed = !directed;
   tree = 0;
+  if(directed){
+    directed = 0;
+    convert_directed_connections();
+  } else{
+    directed = 1;
+  }
+
+  draw();
 }
 
 function add_node(){
