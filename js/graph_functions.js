@@ -118,10 +118,10 @@ function draw_graph_nodes(){
 
     ctx.beginPath();
 
-    ctx.fillStyle = "#3ee";
+    ctx.fillStyle = node_color;
     ctx.arc(posX, posY, radius, 0, Math.PI*2);
     ctx.fill();
-    ctx.fillStyle = "#fff";
+    ctx.fillStyle = node_number_color;
     ctx.fillText(i+1, posX-fontSize/3, posY+fontSize/3);
 
     angle += angle_increment;
@@ -151,7 +151,7 @@ function connect_nodes(node_a, node_b, bezierOffset){
       cpx2    = middleX + Math.cos(end)*(distance - bezierOffset),
       cpy2    = middleY + Math.sin(end)*(distance - bezierOffset);
 
-  ctx.strokeStyle = "#000";
+  ctx.strokeStyle = line_color;
   ctx.beginPath();
 
   ctx.moveTo(firstX, firstY);

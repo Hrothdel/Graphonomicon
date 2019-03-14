@@ -42,7 +42,10 @@ let tree_position = [
   {"x": 1, "y": 2}
 ];
 
-let arrow_color = "#f77";
+let arrow_color = "#f77",
+    line_color = "#000",
+    node_color = "#3ee",
+    node_number_color = "#fff";
 
 initialize_matrix();
 

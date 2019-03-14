@@ -13,6 +13,8 @@ function draw_tree_connection(parent, child,
                 (tree_position[child].x * horizontalSpacing),
       childY  = parentY + verticalSpacing + radius * 2;
 
+  ctx.strokeStyle = line_color;
+  
   ctx.beginPath();
 
   ctx.lineWidth = 5;
@@ -61,10 +63,10 @@ function draw_tree(){
     for(let j = 0; j < tree_rows[i].length; j++){
       ctx.beginPath();
 
-      ctx.fillStyle = "#3ee";
+      ctx.fillStyle = node_color;
       ctx.arc(posX, posY, radius, 0, Math.PI*2);
       ctx.fill();
-      ctx.fillStyle = "#fff";
+      ctx.fillStyle = node_number_color;
       ctx.fillText(tree_rows[i][j]+1, posX-fontSize/3, posY+fontSize/3);
 
       posX += horizontalSpacing;
