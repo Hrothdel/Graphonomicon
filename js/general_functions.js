@@ -78,6 +78,18 @@ function fill_graph(){
   draw();
 }
 
+function clear_graph(){
+  for(let i = 0; i < node_nr; i++){
+    for(let j = 0; j < node_nr; j++){
+      neighbour_matrix[i][j] = 0;
+
+      update_button_matrix_position(i, j);
+    }
+  }
+
+  draw();
+}
+
 function draw(){
   ctx.clearRect(0, 0, width, height);
 
