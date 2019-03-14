@@ -14,7 +14,7 @@ function draw_tree_connection(parent, child,
       childY  = parentY + verticalSpacing + radius * 2;
 
   ctx.strokeStyle = line_color;
-  
+
   ctx.beginPath();
 
   ctx.lineWidth = 5;
@@ -95,6 +95,7 @@ function update_tree_parents(){
 }
 
 function clear_tree_children(){
+  children = [];
   for(let i = 0; i < node_nr; i++){
     children[i] = [];
   }
