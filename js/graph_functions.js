@@ -48,10 +48,11 @@ function draw_arrow(node_a, node_b,
                     arrow_distance, percentage){
   let start   = angle_increment * node_a,
       end     = angle_increment * node_b,
-      firstX  = middleX + Math.cos(start) * distance,
-      firstY  = middleY + Math.sin(start) * distance
-      secondX = middleX + Math.cos(end) * distance,
-      secondY = middleY + Math.sin(end) * distance;
+      firstX, firstY,
+      secondX, secondY;
+
+  [firstX, firstY] = move_at_angle(middleX, middleY, start, distance),
+  [secondX, secondY] = move_at_angle(middleX, middleY, end, distance);
 
   let line_angle = Math.atan2(secondY-firstY, secondX-firstX);
 
@@ -62,12 +63,16 @@ function draw_arrow(node_a, node_b,
     arrow_distance = line_length * (arrow_distance / 100);
   }
 
-  let point1X = firstX + Math.cos(line_angle) * arrow_distance,
-      point1Y = firstY + Math.sin(line_angle) * arrow_distance,
-      point2X = point1X - Math.cos(line_angle + arrow_angle) * arrow_size,
-      point2Y = point1Y - Math.sin(line_angle + arrow_angle) * arrow_size,
-      point3X = point1X - Math.cos(line_angle - arrow_angle) * arrow_size,
-      point3Y = point1Y - Math.sin(line_angle - arrow_angle) * arrow_size;
+  let point1X, point1Y,
+      point2X, point2Y,
+      point3X, point3Y;
+
+  [point1X, point1Y] = move_at_angle(firstX, firstY,
+                        line_angle, arrow_distance);
+  [point2X, point2Y] = move_at_angle(point1X, point1Y,
+                        line_angle + arrow_angle, arrow_size * (-1));
+  [point3X, point3Y] = move_at_angle(point1X, point1Y,
+                        line_angle - arrow_angle, arrow_size * (-1));
 
   ctx.strokeStyle = arrow_color;
   ctx.beginPath();
@@ -113,8 +118,7 @@ function draw_graph_nodes(){
   angle = 0;
 
   for(let i = 0; i < node_nr; i++){
-    posX = middleX + Math.cos(angle)*distance;
-    posY = middleY + Math.sin(angle)*distance;
+    [posX, posY] = move_at_angle(middleX, middleY, angle, distance);
 
     ctx.beginPath();
 
@@ -140,16 +144,19 @@ function draw_graph(){
 function connect_nodes(node_a, node_b, bezierOffset){
   node_a--;
   node_b--;
-  let start   = angle_increment * node_a,
-      end     = angle_increment * node_b,
-      firstX  = middleX + Math.cos(start)*distance,
-      firstY  = middleY + Math.sin(start)*distance,
-      secondX = middleX + Math.cos(end)*distance,
-      secondY = middleY + Math.sin(end)*distance,
-      cpx1    = middleX + Math.cos(start)*(distance - bezierOffset), // control points
-      cpy1    = middleY + Math.sin(start)*(distance - bezierOffset),
-      cpx2    = middleX + Math.cos(end)*(distance - bezierOffset),
-      cpy2    = middleY + Math.sin(end)*(distance - bezierOffset);
+  let start = angle_increment * node_a,
+      end = angle_increment * node_b,
+      firstX, firstY,
+      secondX, secondY,
+      cpx1, cpy1,
+      cpx2, cpy2;
+
+  [firstX, firstY] = move_at_angle(middleX, middleY, start, distance);
+  [secondX, secondY] = move_at_angle(middleX, middleY, end, distance);
+  [cpx1, cpy1] = move_at_angle(middleX, middleY, start,
+                  distance - bezierOffset);
+  [cpx2, cpy2] = move_at_angle(middleX, middleY, end,
+                  distance - bezierOffset);
 
   ctx.strokeStyle = line_color;
   ctx.beginPath();
