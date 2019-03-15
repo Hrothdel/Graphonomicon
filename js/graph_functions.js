@@ -148,21 +148,21 @@ function connect_nodes(node_a, node_b, bezierOffset){
       end = angle_increment * node_b,
       firstX, firstY,
       secondX, secondY,
-      cpx1, cpy1,
-      cpx2, cpy2;
+      cp1X, cp1Y, //control points
+      cp2X, cp2Y;
 
   [firstX, firstY] = move_at_angle(middleX, middleY, start, distance);
   [secondX, secondY] = move_at_angle(middleX, middleY, end, distance);
-  [cpx1, cpy1] = move_at_angle(middleX, middleY, start,
+  [cp1X, cp1Y] = move_at_angle(middleX, middleY, start,
                   distance - bezierOffset);
-  [cpx2, cpy2] = move_at_angle(middleX, middleY, end,
+  [cp2X, cp2Y] = move_at_angle(middleX, middleY, end,
                   distance - bezierOffset);
 
   ctx.strokeStyle = line_color;
   ctx.beginPath();
 
   ctx.moveTo(firstX, firstY);
-  ctx.bezierCurveTo(cpx1, cpy1, cpx2, cpy2, secondX, secondY);
+  ctx.bezierCurveTo(cp1X, cp1Y, cp2X, cp2Y, secondX, secondY);
 
   ctx.stroke();
 }
