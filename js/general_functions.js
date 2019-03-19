@@ -100,3 +100,15 @@ function draw(){
     draw_graph();
   }
 }
+
+function update_node_number(){
+  let last_number = node_nr;
+
+  node_nr = $("#node_number_input").val();
+
+  $("#matrix_container").remove();
+
+  initialize_to_size(last_number, node_nr);
+  add_matrix();
+  draw();
+}

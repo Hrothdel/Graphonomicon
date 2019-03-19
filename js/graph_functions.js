@@ -7,13 +7,15 @@ function initialize_matrix(){
   }
 }
 
-function initialize_to_size(index){
-  if(!neighbour_matrix[index-1]){
-    neighbour_matrix[index-1] = [];
+function initialize_to_size(last_index, current_index){
+  for(let i = last_index; i < current_index; i++){
+    if(!neighbour_matrix[i]){
+      neighbour_matrix[i] = [];
 
-    for(let i = 0; i < index; i ++){
-      neighbour_matrix[index-1][i] = 0;
-      neighbour_matrix[i][index-1] = 0;
+      for(let j = 0; j < i; j++){
+        neighbour_matrix[i][j] = 0;
+        neighbour_matrix[j][i] = 0;
+      }
     }
   }
 }

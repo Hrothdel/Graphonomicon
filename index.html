@@ -15,6 +15,8 @@
 					<section class="control_button_group">
 						<button class="control_button" type="button" onclick="add_node()">++</button>
 						<button class="control_button" type="button" onclick="remove_node()">--</button>
+						<label for="node_number_input">Node number:</label>
+						<input class="control_number_input" id="node_number_input" type="number" name="node_number_input" value="6" min="0" onchange="update_node_number()">
 						<button class="control_button" type="button" onclick="fill_graph()">Fill graph</button>
 						<button class="control_button" type="button" onclick="clear_graph()">Clear graph</button>
 						<section class="checkbox_pair">
