@@ -44,26 +44,6 @@ function toggle_tree(){
   draw();
 }
 
-function add_node(){
-  node_nr++;
-
-  $("#matrix_container").remove();
-
-  initialize_to_size(node_nr);
-  add_matrix();
-  draw();
-}
-
-function remove_node(){
-  if(node_nr){
-    node_nr--;
-
-    $("#matrix_container").remove();
-    add_matrix();
-    draw();
-  }
-}
-
 function fill_graph(){
   for(let i = 0; i < node_nr; i++){
     for(let j = 0; j < node_nr; j++){
