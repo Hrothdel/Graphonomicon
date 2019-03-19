@@ -15,12 +15,10 @@ function add_collapsible_listners(){
   }
 }
 
-function set_directed_checkbox(){
-  $("#directed_checkbox").prop("checked", directed);
-}
-
-function set_tree_checkbox(){
+function set_default_values(){
+  $("#node_number_input").val(6);
   $("#tree_checkbox").prop("checked", tree);
+  $("#directed_checkbox").prop("checked", directed);
 }
 
 function toggle_directed(){

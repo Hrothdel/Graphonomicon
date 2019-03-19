@@ -26,7 +26,6 @@ initialize_matrix();
 add_matrix();
 add_collapsible_listners();
 
-set_directed_checkbox();
-set_tree_checkbox();
+set_default_values();
 
 draw();
