@@ -20,6 +20,13 @@ function initialize_to_size(last_index, current_index){
   }
 }
 
+function update_neighbour_matrix(last_number){
+  initialize_to_size(last_number, node_nr);
+
+  $("#matrix_container").remove();
+  add_matrix();
+}
+
 function toggle_position(x, y){
   if(neighbour_matrix[x][y]){
     neighbour_matrix[x][y] = 0;

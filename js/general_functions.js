@@ -86,9 +86,6 @@ function update_node_number(){
 
   node_nr = $("#node_number_input").val();
 
-  $("#matrix_container").remove();
-
-  initialize_to_size(last_number, node_nr);
-  add_matrix();
+  update_neighbour_matrix(last_number);
   draw();
 }
