@@ -82,7 +82,7 @@ function draw(){
 function update_node_number(){
   let last_number = node_nr;
 
-  node_nr = $("#node_number_input").val();
+  node_nr = Number($("#node_number_input").val());
 
   update_neighbour_matrix(last_number);
   draw();

@@ -12,7 +12,7 @@ function initialize_to_size(last_index, current_index){
     if(!neighbour_matrix[i]){
       neighbour_matrix[i] = [];
 
-      for(let j = 0; j < i; j++){
+      for(let j = 0; j <= i; j++){
         neighbour_matrix[i][j] = 0;
         neighbour_matrix[j][i] = 0;
       }
