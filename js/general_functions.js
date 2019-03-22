@@ -21,9 +21,17 @@ function set_default_values(){
   $("#directed_checkbox").prop("checked", directed);
 }
 
+function update_checkbox_state(id, value){
+  $(id).prop("checked", value);
+}
+
 function toggle_directed(){
-  tree = 0;
   if(directed){
+    if(tree){
+      toggle_tree();
+      update_checkbox_state("#tree_checkbox", tree);
+    }
+
     directed = 0;
     convert_directed_connections();
   } else{
@@ -36,6 +44,7 @@ function toggle_directed(){
 function toggle_tree(){
   if(!tree && !directed){
     toggle_directed();
+    update_checkbox_state("#directed_checkbox", directed);
   }
   tree = !tree;
 
