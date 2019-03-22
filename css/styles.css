@@ -48,6 +48,24 @@
 	font-size: 2em;
 }
 
+.control_number_input {
+	min-width: 30px;
+}
+
+.control_label {
+	white-space: nowrap;
+}
+
+.number_input_label {
+	margin-right: 5%;
+}
+
+.label_input_pair {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
 .collapsible {
 	cursor: pointer;
 }
