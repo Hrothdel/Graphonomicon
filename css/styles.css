@@ -68,6 +68,7 @@
 
 .collapsible {
 	cursor: pointer;
+	white-space: nowrap;
 }
 
 .collapsible:after {
