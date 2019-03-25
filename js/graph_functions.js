@@ -27,7 +27,7 @@ function update_neighbour_matrix(last_number){
   add_matrix();
 }
 
-function toggle_position(x, y){
+function toggle_matrix_position(x, y){
   if(neighbour_matrix[x][y]){
     neighbour_matrix[x][y] = 0;
   } else{
@@ -40,12 +40,12 @@ function update_button_matrix_position(x, y){
 }
 
 function toggle_connection(x, y){
-  toggle_position(x, y);
+  toggle_matrix_position(x, y);
 
   update_button_matrix_position(x, y);
 
   if(!directed){
-    toggle_position(y, x);
+    toggle_matrix_position(y, x);
     update_button_matrix_position(y, x);
   }
 
