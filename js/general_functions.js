@@ -86,6 +86,8 @@ function draw(){
   } else {
     draw_graph();
   }
+
+  update_all_information();
 }
 
 function update_node_number(){
@@ -95,4 +97,33 @@ function update_node_number(){
 
   update_neighbour_matrix(last_number);
   draw();
+}
+
+function count_connections(){
+  let connection_count = 0;
+
+  for(let i = 0; i < node_nr; i++){
+    for(let j = 0; j < node_nr; j++){
+      if(neighbour_matrix[i][j]){
+        connection_count++;
+      }
+    }
+  }
+
+  if(!directed){
+    connection_count /= 2;
+  }
+
+  return connection_count;
+}
+
+function update_information_display(name, value){
+  $("#"+name).text(value);
+}
+
+function update_all_information(){
+  let value;
+
+  value = count_connections();
+  update_information_display("connection_count", value);
 }
