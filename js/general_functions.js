@@ -52,8 +52,8 @@ function toggle_tree(){
 }
 
 function fill_graph(){
-  for(let i = 0; i < node_nr; i++){
-    for(let j = 0; j < node_nr; j++){
+  for(let i = 0; i < node_number; i++){
+    for(let j = 0; j < node_number; j++){
       if(i != j){
         neighbour_matrix[i][j] = 1;
 
@@ -66,8 +66,8 @@ function fill_graph(){
 }
 
 function clear_graph(){
-  for(let i = 0; i < node_nr; i++){
-    for(let j = 0; j < node_nr; j++){
+  for(let i = 0; i < node_number; i++){
+    for(let j = 0; j < node_number; j++){
       neighbour_matrix[i][j] = 0;
 
       update_button_matrix_position(i, j);
@@ -91,9 +91,9 @@ function draw(){
 }
 
 function update_node_number(){
-  let last_number = node_nr;
+  let last_number = node_number;
 
-  node_nr = Number($("#node_number_input").val());
+  node_number = Number($("#node_number_input").val());
 
   update_neighbour_matrix(last_number);
   draw();
@@ -102,8 +102,8 @@ function update_node_number(){
 function count_connections(){
   let connection_count = 0;
 
-  for(let i = 0; i < node_nr; i++){
-    for(let j = 0; j < node_nr; j++){
+  for(let i = 0; i < node_number; i++){
+    for(let j = 0; j < node_number; j++){
       if(neighbour_matrix[i][j]){
         connection_count++;
       }

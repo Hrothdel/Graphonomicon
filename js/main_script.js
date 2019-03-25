@@ -5,7 +5,7 @@ const middleX = height/2,
 const canvas = document.getElementById("mainCanvas"),
       ctx = canvas.getContext("2d");
 
-let node_nr = 6, distance = 200,
+let node_number = 6, distance = 200,
     radius = 40, fontSize = 30;
 
 let angle_increment,

@@ -8,18 +8,18 @@ function add_matrix(){
   row = $("#matrix_number_row");
 
   row.append('<td id="matrix_row_blank"></td>');
-  for(let i = 0; i < node_nr; i++){
+  for(let i = 0; i < node_number; i++){
     row.append(`<td id="matrix_row_number-${i+1}" class="matrix_element">${i+1}</td>`);
   }
 
-  for(let i = 0; i < node_nr; i++){
+  for(let i = 0; i < node_number; i++){
     matrix_container.append(`<tr id="matrix_row-${i+1}"></tr>`)
     row = $(`#matrix_row-${i+1}`);
 
     row.append(`<td id="matrix_column_number-${i+1}" class="matrix_element">${i+1}</td>`);
 
-    for(let j = 0; j < node_nr; j++){
-      let index = i*node_nr + j+1, button_properties = "";
+    for(let j = 0; j < node_number; j++){
+      let index = i*node_number + j+1, button_properties = "";
 
       if(i == j){
         button_properties += 'disabled = "disabled"';

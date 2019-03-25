@@ -1,7 +1,7 @@
 function initialize_matrix(){
-  for(let i = 0; i < node_nr; i++){
+  for(let i = 0; i < node_number; i++){
     neighbour_matrix[i] = [];
-    for(let j = 0; j < node_nr; j++){
+    for(let j = 0; j < node_number; j++){
       neighbour_matrix[i][j] = 0;
     }
   }
@@ -21,7 +21,7 @@ function initialize_to_size(last_index, current_index){
 }
 
 function update_neighbour_matrix(last_number){
-  initialize_to_size(last_number, node_nr);
+  initialize_to_size(last_number, node_number);
 
   $("#matrix_container").remove();
   add_matrix();
@@ -36,7 +36,7 @@ function toggle_matrix_position(x, y){
 }
 
 function update_button_matrix_position(x, y){
-  $(`#matrix_button-${x*node_nr+y+1}`).text(neighbour_matrix[x][y]);
+  $(`#matrix_button-${x*node_number+y+1}`).text(neighbour_matrix[x][y]);
 }
 
 function toggle_connection(x, y){
@@ -94,8 +94,8 @@ function draw_arrow(node_a, node_b,
 }
 
 function draw_graph_arrows(){
-  for(let i = 0; i < node_nr; i++){
-    for(let j = 0; j < node_nr; j++){
+  for(let i = 0; i < node_number; i++){
+    for(let j = 0; j < node_number; j++){
       if(neighbour_matrix[i][j]){
         draw_arrow(i, j, 20, Math.PI/6, 65, true);
       }
@@ -109,8 +109,8 @@ function draw_graph_connections(){
     bezierOffset = 0;
   }
 
-  for(let i = 0; i < node_nr; i++){
-    for(let j = 0; j < node_nr; j++){
+  for(let i = 0; i < node_number; i++){
+    for(let j = 0; j < node_number; j++){
       if(neighbour_matrix[i][j] == 1){
         connect_nodes(i+1, j+1, bezierOffset);
       }
@@ -126,7 +126,7 @@ function draw_graph_nodes(){
 
   angle = 0;
 
-  for(let i = 0; i < node_nr; i++){
+  for(let i = 0; i < node_number; i++){
     [posX, posY] = move_at_angle(middleX, middleY, angle, distance);
 
     ctx.beginPath();
@@ -142,7 +142,7 @@ function draw_graph_nodes(){
 }
 
 function draw_graph(){
-  angle_increment = Math.PI*2/node_nr;
+  angle_increment = Math.PI*2/node_number;
   draw_graph_connections();
   if(directed){
     draw_graph_arrows();
@@ -177,8 +177,8 @@ function connect_nodes(node_a, node_b, bezierOffset){
 }
 
 function convert_directed_connections(){
-  for(let i = 0; i < node_nr; i++){
-    for(let j = i; j < node_nr; j++){
+  for(let i = 0; i < node_number; i++){
+    for(let j = i; j < node_number; j++){
       if(neighbour_matrix[i][j] || neighbour_matrix[j][i]){
         neighbour_matrix[i][j] = 1;
         neighbour_matrix[j][i] = 1;

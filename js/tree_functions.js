@@ -85,7 +85,7 @@ function update_tree_parents(){
   while(stack.length){
     current_node = stack.pop();
 
-    for(let i = 0; i < node_nr; i++){
+    for(let i = 0; i < node_number; i++){
       if(neighbour_matrix[current_node][i] && parents[i] == undefined){
         parents[i] = current_node;
         stack.push(i);
@@ -96,7 +96,7 @@ function update_tree_parents(){
 
 function clear_tree_children(){
   children = [];
-  for(let i = 0; i < node_nr; i++){
+  for(let i = 0; i < node_number; i++){
     children[i] = [];
   }
 }
@@ -106,7 +106,7 @@ function update_tree_children(){
 
   clear_tree_children();
 
-  for(let i = 0; i < node_nr; i++){
+  for(let i = 0; i < node_number; i++){
     if(parents[i] != -1 && children[parents[i]]){
       children[parents[i]].push(i);
     }
