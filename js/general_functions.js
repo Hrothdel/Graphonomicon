@@ -107,7 +107,7 @@ function update_tree_root(){
     $("#tree_root_input").val(input);
   }
 
-  root = input - 1;
+  change_root(input - 1);
 
   draw();
 }

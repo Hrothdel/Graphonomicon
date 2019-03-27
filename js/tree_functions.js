@@ -154,3 +154,18 @@ function update_tree_position(){
 function update_tree_information(){
   update_tree_position();
 }
+
+function change_root(new_root){
+  let current_node = parents[new_root],
+      last_node = new_root;
+
+  while(current_node != -1 && current_node != undefined){
+    toggle_matrix_position(current_node, last_node);
+    toggle_matrix_position(last_node, current_node);
+    last_node = current_node;
+    current_node = parents[last_node];
+  }
+
+  parents[root] = -1;
+  root = new_root;
+}
