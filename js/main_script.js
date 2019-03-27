@@ -13,7 +13,7 @@ let angle_increment,
 
 let tree = 0, directed = 1;
 
-let root = 0, tree_rows, parents,
+let root = 0, tree_rows, parents = [],
     children, tree_position;
 
 let arrow_color = "#f77",
