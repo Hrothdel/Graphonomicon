@@ -17,6 +17,7 @@ function add_collapsible_listners(){
 
 function set_default_values(){
   $("#node_number_input").val(6);
+  $("#tree_root_input").val(1);
   $("#tree_checkbox").prop("checked", tree);
   $("#directed_checkbox").prop("checked", directed);
 }
