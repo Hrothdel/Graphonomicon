@@ -27,6 +27,10 @@
 							<input class="control_checkbox" id="tree_checkbox" type="checkbox" onclick="toggle_tree()">
 							<label class="control_label" for="tree_checkbox">Tree</label>
 						</section>
+						<section>
+							<label for="tree_root_input">Tree root:</label>
+							<input class="control_number_input" id="tree_root_input" type="number" name="tree_root_input" value="1" min="0" onchange="update_tree_root()">
+						</section>
 					</section>
 				</section>
 				<section class="control_group" id="matrix_group">

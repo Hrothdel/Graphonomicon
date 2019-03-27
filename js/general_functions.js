@@ -99,6 +99,19 @@ function update_node_number(){
   draw();
 }
 
+function update_tree_root(){
+  let input = Number($("#tree_root_input").val());
+
+  if(input > node_number){
+    input = node_number;
+    $("#tree_root_input").val(input);
+  }
+
+  root = input - 1;
+
+  draw();
+}
+
 function count_connections(){
   let connection_count = 0;
 
