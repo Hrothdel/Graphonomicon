@@ -21,7 +21,8 @@ let arrow_color = "#f77",
     node_color = "#3ee",
     node_number_color = "#fff";
 
-initialize_matrix();
+neighbour_matrix = create_initialized_matrix(
+                    node_number, node_number, 0);
 
 add_matrix();
 add_collapsible_listners();

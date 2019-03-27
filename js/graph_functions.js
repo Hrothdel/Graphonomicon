@@ -1,12 +1,3 @@
-function initialize_matrix(){
-  for(let i = 0; i < node_number; i++){
-    neighbour_matrix[i] = [];
-    for(let j = 0; j < node_number; j++){
-      neighbour_matrix[i][j] = 0;
-    }
-  }
-}
-
 function initialize_to_size(last_index, current_index){
   for(let i = last_index; i < current_index; i++){
     if(!neighbour_matrix[i]){
