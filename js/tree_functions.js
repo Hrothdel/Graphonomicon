@@ -169,3 +169,15 @@ function change_root(new_root){
   parents[root] = -1;
   root = new_root;
 }
+
+function count_leaves(){
+  let number = 0;
+
+  for(let i = 0; i < node_number; i++){
+    if(parents[i] != undefined && parents[i] != -1 && children[i].length == 0){
+      number++;
+    }
+  }
+
+  return number;
+}

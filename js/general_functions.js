@@ -140,4 +140,7 @@ function update_all_information(){
 
   value = count_connections();
   update_information_display("connection_count", value);
+
+  value = count_leaves();
+  update_information_display("leaf_count", value);
 }
