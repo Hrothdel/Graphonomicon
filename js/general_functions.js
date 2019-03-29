@@ -143,4 +143,10 @@ function update_all_information(){
 
   value = count_leaves();
   update_information_display("leaf_count", value);
+
+  if(tree){
+    $("#tree_information").css("display", "block");
+  } else {
+    $("#tree_information").css("display", "none");
+  }
 }
