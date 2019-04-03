@@ -1,4 +1,4 @@
-function add_collapsible_listners(){
+function add_collapsible_listeners(){
   let elements = $(".collapsible");
 
   for(let i = 0; i < elements.length; i++){
