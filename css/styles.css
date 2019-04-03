@@ -121,3 +121,12 @@
 	width: 30px;
 	height: auto;
 }
+
+button:focus {
+	outline: none;
+	box-shadow: 0 0 4pt 2pt red;
+}
+
+button::-moz-focus-inner {
+	border: 0;
+}
