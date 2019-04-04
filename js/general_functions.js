@@ -15,6 +15,16 @@ function add_collapsible_listeners(){
   }
 }
 
+function add_listeners(){
+  add_collapsible_listeners();
+
+  $(window).click(function(event) {
+    if(event.target.id === "options_modal"){
+      hide_options_screen();
+    }
+  });
+}
+
 function set_default_values(){
   $("#node_number_input").val(6);
   $("#tree_root_input").val(1);
@@ -149,4 +159,12 @@ function update_all_information(){
   } else {
     $("#tree_information").css("display", "none");
   }
+}
+
+function show_options_screen(){
+  $("#options_modal").removeClass("transparent");
+}
+
+function hide_options_screen(){
+  $("#options_modal").addClass("transparent");
 }

@@ -10,7 +10,7 @@
 	<body>
 		<section id="main_container">
 			<section id="control">
-				<button class="settings_button">
+				<button class="settings_button" onclick="show_options_screen()">
 					<img class="settings_button_image" src="images/cog.png" alt="settings button">
 				</button>
 				<section class="control_group">
@@ -58,6 +58,12 @@
 
 			<canvas id="mainCanvas" height="700" width="700">
 			</canvas>
+
+			<div class="modal transparent" id="options_modal">
+				<section class="options_screen">
+					<h1>Options</h1>
+				</section>
+			</div>
 		</section>
 
 		<script src="js/graph_functions.js"></script>

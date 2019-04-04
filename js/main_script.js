@@ -25,7 +25,7 @@ neighbour_matrix = create_initialized_matrix(
                     node_number, node_number, 0);
 
 add_matrix();
-add_collapsible_listeners();
+add_listeners();
 
 set_default_values();
 
