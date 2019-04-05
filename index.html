@@ -15,26 +15,26 @@
 				</button>
 				<section class="control_group">
 					<button class="control_header collapsible active">Graph settings</button>
-					<section class="control_button_group">
-						<section class="label_input_pair">
+					<div class="control_button_group">
+						<div class="label_input_pair">
 							<label class="control_label number_input_label" for="node_number_input">Node number:</label>
 							<input class="control_number_input" id="node_number_input" type="number" name="node_number_input" value="6" min="0" onchange="update_node_number()">
-						</section>
+						</div>
 						<button class="control_button" type="button" onclick="fill_graph()">Fill graph</button>
 						<button class="control_button" type="button" onclick="clear_graph()">Clear graph</button>
-						<section class="checkbox_pair">
+						<div class="checkbox_pair">
 							<input class="control_checkbox" id="directed_checkbox" type="checkbox" checked onclick="toggle_directed()">
 							<label class="control_label" for="directed_checkbox">Directed</label>
-						</section>
-						<section class="checkbox_pair">
+						</div>
+						<div class="checkbox_pair">
 							<input class="control_checkbox" id="tree_checkbox" type="checkbox" onclick="toggle_tree()">
 							<label class="control_label" for="tree_checkbox">Tree</label>
-						</section>
-						<section>
+						</div>
+						<div>
 							<label for="tree_root_input">Tree root:</label>
 							<input class="control_number_input" id="tree_root_input" type="number" name="tree_root_input" value="1" min="1" onchange="update_tree_root()">
-						</section>
-					</section>
+						</div>
+					</div>
 				</section>
 				<section class="control_group" id="matrix_group">
 					<button class="control_header collapsible">Neighbour matrix</button>
