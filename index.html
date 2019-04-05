@@ -66,13 +66,15 @@
 					<h2 class="options_header">Graph options</h2>
 					<section class="options_section">
 						<div class="option_group">
-							<label for="graph_radius_input">Graph radius:</label>
-							<input type="number" name="graph_radius_input" id="graph_radius_input" value="200" min="0" onchange="update_graph_radius()">
+							<div class="label_input_pair">
+								<label for="graph_radius_input">Graph radius:</label>
+								<input type="number" name="graph_radius_input" id="graph_radius_input" value="200" min="0" onchange="update_graph_radius()">
+							</div>
 							<p class="note">The distance between the center of the canvas and the nodes, in pixels.</p>
 						</div>
 					</section>
 					<h2 class="options_header">Color options</h2>
-					<section class="options_section">
+					<section class="options_section color_options">
 							<div class="label_input_pair">
 								<label for="arrow_color">Arrow color:</label>
 								<input type="color" name="arrow_color" id="arrow_color_input" value="#ff7777">

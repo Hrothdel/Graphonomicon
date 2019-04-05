@@ -79,6 +79,11 @@
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
+	justify-content: center;
+}
+
+.color_options>.label_input_pair {
+	justify-content: space-between;
 }
 
 .information_header {
