@@ -131,6 +131,22 @@ button::-moz-focus-inner {
 	border: 0;
 }
 
+.x_button {
+	align-self: flex-end;
+
+	font-size: 4em;
+	background: none;
+	border: none;
+}
+
+.x_button:focus {
+	box-shadow: none;
+}
+
+.x_button:hover {
+	color: #aaa;
+}
+
 .modal {
 	position: fixed;
 	z-index: 1;
@@ -162,6 +178,13 @@ button::-moz-focus-inner {
 	height: 100%;
 	overflow-y: auto;
 	margin: auto;
+	padding: 0 7%;
 
 	background-color: #eee;
+}
+
+.options_header {
+	margin: 0;
+
+	font-size: 2.3em;
 }
