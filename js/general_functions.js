@@ -31,6 +31,10 @@ function set_default_values(){
   $("#tree_checkbox").prop("checked", tree);
   $("#directed_checkbox").prop("checked", directed);
   $("#graph_radius_input").val(200);
+  $("#node_color_input").val("#33eeee");
+  $("#line_color_input").val("#000000");
+  $("#node_number_color_input").val("#ffffff");
+  $("#arrow_color_input").val("#ff7777");
 }
 
 function update_checkbox_state(id, value){
@@ -128,6 +132,23 @@ function update_graph_radius(){
   let input = Number($("#graph_radius_input").val());
 
   distance = input;
+
+  draw();
+}
+
+function update_colors(){
+  let input = $("#node_color_input").val();
+
+  node_color = input;
+
+  input = $("#line_color_input").val();
+  line_color = input;
+
+  input = $("#node_number_color_input").val();
+  node_number_color = input;
+
+  input = $("#arrow_color_input").val();
+  arrow_color = input;
 
   draw();
 }
