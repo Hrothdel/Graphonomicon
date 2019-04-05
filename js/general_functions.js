@@ -30,6 +30,7 @@ function set_default_values(){
   $("#tree_root_input").val(1);
   $("#tree_checkbox").prop("checked", tree);
   $("#directed_checkbox").prop("checked", directed);
+  $("#graph_radius_input").val(200);
 }
 
 function update_checkbox_state(id, value){
@@ -119,6 +120,14 @@ function update_tree_root(){
   }
 
   change_root(input - 1);
+
+  draw();
+}
+
+function update_graph_radius(){
+  let input = Number($("#graph_radius_input").val());
+
+  distance = input;
 
   draw();
 }
