@@ -126,7 +126,9 @@ function draw_graph_nodes(){
     ctx.arc(posX, posY, radius, 0, Math.PI*2);
     ctx.fill();
     ctx.fillStyle = node_number_color;
-    ctx.fillText(i+1, posX-fontSize/3, posY+fontSize/3);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(i+1, posX, posY);
 
     angle += angle_increment;
   }
