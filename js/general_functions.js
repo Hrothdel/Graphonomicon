@@ -32,6 +32,7 @@ function set_default_values(){
   $("#directed_checkbox").prop("checked", directed);
   $("#graph_radius_input").val(200);
   $("#node_radius_input").val(40);
+  $("#node_font_size_input").val(30);
   $("#node_color_input").val("#33eeee");
   $("#line_color_input").val("#000000");
   $("#node_number_color_input").val("#ffffff");
@@ -141,6 +142,14 @@ function update_node_radius(){
   let input = Number($("#node_radius_input").val());
 
   radius = input;
+
+  draw();
+}
+
+function update_node_font_size(){
+  let input = Number($("#node_font_size_input").val());
+
+  fontSize = input;
 
   draw();
 }
