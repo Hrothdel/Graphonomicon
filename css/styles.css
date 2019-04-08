@@ -202,11 +202,13 @@ h2.options_header {
 }
 
 .note {
+	margin-top: 1%;
+	
 	color: #888;
 
 	text-align: center;
 }
 
 .option_group {
-	margin-top: 3%;
+	margin-top: 5%;
 }
