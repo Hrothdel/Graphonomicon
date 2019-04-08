@@ -203,6 +203,8 @@ h2.options_header {
 
 .note {
 	color: #888;
+
+	text-align: center;
 }
 
 .option_group {
