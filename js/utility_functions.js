@@ -1,9 +1,9 @@
-function move_at_angle(posX, posY, angle, move_distance){
-  return [posX + Math.cos(angle) * move_distance,
-          posY + Math.sin(angle) * move_distance];
+function moveAtAngle(pos_x, pos_y, angle, move_distance){
+  return [pos_x + Math.cos(angle) * move_distance,
+          pos_y + Math.sin(angle) * move_distance];
 }
 
-function create_initialized_matrix(rows, columns, initial_value){
+function createInitializedMatrix(rows, columns, initial_value){
   let matrix = [];
 
   for(let i = 0; i < rows; i++){

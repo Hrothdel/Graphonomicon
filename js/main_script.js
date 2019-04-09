@@ -1,15 +1,15 @@
-const height = 700, width = 700;
-const middleX = height/2,
-      middleY = width/2;
+const HEIGHT = 700, WIDTH = 700;
+const MIDDLE_X = HEIGHT/2,
+      MIDDLE_Y = WIDTH/2;
 
-const canvas = document.getElementById("mainCanvas"),
+const canvas = document.getElementById("main-canvas"),
       ctx = canvas.getContext("2d");
 
 let node_number = 6, distance = 200,
-    radius = 40, fontSize = 30;
+    radius = 40, font_size = 30;
 
 let angle_increment,
-    neighbour_matrix = [];
+    neighbor_matrix = [];
 
 let tree = 0, directed = 1;
 
@@ -21,12 +21,12 @@ let arrow_color = "#f77",
     node_color = "#3ee",
     node_number_color = "#fff";
 
-neighbour_matrix = create_initialized_matrix(
+neighbor_matrix = createInitializedMatrix(
                     node_number, node_number, 0);
 
-add_matrix();
-add_listeners();
+addMatrix();
+addListeners();
 
-set_default_values();
+setDefaultValues();
 
 draw();

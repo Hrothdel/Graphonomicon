@@ -1,4 +1,4 @@
-#main_container {
+#main-container {
 	display: flex;
 	flex-flow: row-reverse wrap-reverse;
 	align-items: flex-end;
@@ -19,7 +19,7 @@
 	padding: 2%;
 }
 
-.settings_button {
+.settings-button {
 	align-self: flex-end;
 
 	width: 50px;
@@ -30,17 +30,17 @@
 	padding: 4px;
 }
 
-.settings_button_image {
+.settings-button-image {
 	width: 100%;
 }
 
-.control_group {
+.control-group {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.control_button_group {
+.control-button-group {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -50,43 +50,43 @@
 	margin-bottom: 10%;
 }
 
-.control_button {
+.control-button {
 	margin: 0px 3%;
 
 	white-space:nowrap;
 }
 
-.control_header {
+.control-header {
 	background-color: #fff;
 	border: none;
 
 	font-size: 2em;
 }
 
-.control_number_input {
+.control-number-input {
 	min-width: 30px;
 }
 
-.control_label {
+.control-label {
 	white-space: nowrap;
 }
 
-.number_input_label {
+.number-input-label {
 	margin-right: 5%;
 }
 
-.label_input_pair {
+.label-input-pair {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
 	justify-content: center;
 }
 
-.color_options>.label_input_pair {
+.color-options>.label-input-pair {
 	justify-content: space-between;
 }
 
-.information_header {
+.information-header {
 	font-size: 1.5em;
 }
 
@@ -107,20 +107,20 @@
 	display: none;
 }
 
-#mainCanvas {
+#main-canvas {
 	border: 3px solid #aaa;
 	margin: 3%;
 }
 
-#matrix_container {
+#matrix-container {
 	border-collapse: collapse;
 }
 
-.matrix_element {
+.matrix-element {
 	text-align: center;
 }
 
-.matrix_button {
+.matrix-button {
 	margin: auto;
 	padding: auto;
 	width: 30px;
@@ -136,7 +136,7 @@ button::-moz-focus-inner {
 	border: 0;
 }
 
-.x_button {
+.x-button {
 	align-self: flex-end;
 
 	font-size: 4em;
@@ -144,11 +144,11 @@ button::-moz-focus-inner {
 	border: none;
 }
 
-.x_button:focus {
+.x-button:focus {
 	box-shadow: none;
 }
 
-.x_button:hover {
+.x-button:hover {
 	color: #aaa;
 }
 
@@ -174,7 +174,7 @@ button::-moz-focus-inner {
 	pointer-events: none;
 }
 
-.options_screen {
+.options-screen {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -188,13 +188,13 @@ button::-moz-focus-inner {
 	background-color: #eee;
 }
 
-.options_header {
+.options-header {
 	margin: 0;
 
 	font-size: 2.3em;
 }
 
-h2.options_header {
+h2.options-header {
 	margin-top: 5%;
 
 	font-size: 1.7em;
@@ -203,12 +203,12 @@ h2.options_header {
 
 .note {
 	margin-top: 1%;
-	
+
 	color: #888;
 
 	text-align: center;
 }
 
-.option_group {
+.option-group {
 	margin-top: 5%;
 }

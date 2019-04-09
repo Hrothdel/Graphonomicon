@@ -1,4 +1,4 @@
-function add_collapsible_listeners(){
+function addCollapsibleListeners(){
   let elements = $(".collapsible");
 
   for(let i = 0; i < elements.length; i++){
@@ -15,43 +15,43 @@ function add_collapsible_listeners(){
   }
 }
 
-function add_listeners(){
-  add_collapsible_listeners();
+function addListeners(){
+  addCollapsibleListeners();
 
   $(window).click(function(event) {
-    if(event.target.id === "options_modal"){
-      hide_options_screen();
+    if(event.target.id === "options-modal"){
+      hideOptionsScreen();
     }
   });
 }
 
-function set_default_values(){
-  $("#node_number_input").val(6);
-  $("#tree_root_input").val(1);
-  $("#tree_checkbox").prop("checked", tree);
-  $("#directed_checkbox").prop("checked", directed);
-  $("#graph_radius_input").val(200);
-  $("#node_radius_input").val(40);
-  $("#node_font_size_input").val(30);
-  $("#node_color_input").val("#33eeee");
-  $("#line_color_input").val("#000000");
-  $("#node_number_color_input").val("#ffffff");
-  $("#arrow_color_input").val("#ff7777");
+function setDefaultValues(){
+  $("#node-number-input").val(6);
+  $("#tree-root-input").val(1);
+  $("#tree-checkbox").prop("checked", tree);
+  $("#directed-checkbox").prop("checked", directed);
+  $("#graph-radius-input").val(200);
+  $("#node-radius-input").val(40);
+  $("#node-font-size-input").val(30);
+  $("#node-color-input").val("#33eeee");
+  $("#line-color-input").val("#000000");
+  $("#node-number-color-input").val("#ffffff");
+  $("#arrow-color-input").val("#ff7777");
 }
 
-function update_checkbox_state(id, value){
+function updateCheckboxState(id, value){
   $(id).prop("checked", value);
 }
 
-function toggle_directed(){
+function toggleDirected(){
   if(directed){
     if(tree){
-      toggle_tree();
-      update_checkbox_state("#tree_checkbox", tree);
+      toggleTree();
+      updateCheckboxState("#tree-checkbox", tree);
     }
 
     directed = 0;
-    convert_directed_connections();
+    convertDirectedConnections();
   } else{
     directed = 1;
   }
@@ -59,23 +59,23 @@ function toggle_directed(){
   draw();
 }
 
-function toggle_tree(){
+function toggleTree(){
   if(!tree && !directed){
-    toggle_directed();
-    update_checkbox_state("#directed_checkbox", directed);
+    toggleDirected();
+    updateCheckboxState("#directed-checkbox", directed);
   }
   tree = !tree;
 
   draw();
 }
 
-function fill_graph(){
+function fillGraph(){
   for(let i = 0; i < node_number; i++){
     for(let j = 0; j < node_number; j++){
       if(i != j){
-        neighbour_matrix[i][j] = 1;
+        neighbor_matrix[i][j] = 1;
 
-        update_button_matrix_position(i, j);
+        updateButtonMatrixPosition(i, j);
       }
     }
   }
@@ -83,12 +83,12 @@ function fill_graph(){
   draw();
 }
 
-function clear_graph(){
+function clearGraph(){
   for(let i = 0; i < node_number; i++){
     for(let j = 0; j < node_number; j++){
-      neighbour_matrix[i][j] = 0;
+      neighbor_matrix[i][j] = 0;
 
-      update_button_matrix_position(i, j);
+      updateButtonMatrixPosition(i, j);
     }
   }
 
@@ -96,87 +96,87 @@ function clear_graph(){
 }
 
 function draw(){
-  ctx.clearRect(0, 0, width, height);
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
   if(tree){
-    update_tree_information();
-    draw_tree();
+    updateTreeInformation();
+    drawTree();
   } else {
-    draw_graph();
+    drawGraph();
   }
 
-  update_all_information();
+  updateAllInformation();
 }
 
-function update_node_number(){
+function updateNodeNumber(){
   let last_number = node_number;
 
-  node_number = Number($("#node_number_input").val());
+  node_number = Number($("#node-number-input").val());
 
-  update_neighbour_matrix(last_number);
+  updateNeighborMatrix(last_number);
   draw();
 }
 
-function update_tree_root(){
-  let input = Number($("#tree_root_input").val());
+function updateTreeRoot(){
+  let input = Number($("#tree-root-input").val());
 
   if(input > node_number){
     input = node_number;
-    $("#tree_root_input").val(input);
+    $("#tree-root-input").val(input);
   }
 
-  change_root(input - 1);
+  changeRoot(input - 1);
 
   draw();
 }
 
-function update_graph_radius(){
-  let input = Number($("#graph_radius_input").val());
+function updateGraphRadius(){
+  let input = Number($("#graph-radius-input").val());
 
   distance = input;
 
   draw();
 }
 
-function update_node_radius(){
-  let input = Number($("#node_radius_input").val());
+function updateNodeRadius(){
+  let input = Number($("#node-radius-input").val());
 
   radius = input;
 
   draw();
 }
 
-function update_node_font_size(){
-  let input = Number($("#node_font_size_input").val());
+function updateNodeFontSize(){
+  let input = Number($("#node-font-size-input").val());
 
-  fontSize = input;
+  font_size = input;
 
   draw();
 }
 
-function update_colors(){
-  let input = $("#node_color_input").val();
+function updateColors(){
+  let input = $("#node-color-input").val();
 
   node_color = input;
 
-  input = $("#line_color_input").val();
+  input = $("#line-color-input").val();
   line_color = input;
 
-  input = $("#node_number_color_input").val();
+  input = $("#node-number-color-input").val();
   node_number_color = input;
 
-  input = $("#arrow_color_input").val();
+  input = $("#arrow-color-input").val();
   arrow_color = input;
 
   draw();
 }
 
-function count_connections(){
+function countConnections(){
   let connection_count = 0;
 
   for(let i = 0; i < node_number; i++){
     for(let j = 0; j < node_number; j++){
-      if(neighbour_matrix[i][j]){
+      if(neighbor_matrix[i][j]){
         connection_count++;
       }
     }
@@ -189,30 +189,30 @@ function count_connections(){
   return connection_count;
 }
 
-function update_information_display(name, value){
+function updateInformationDisplay(name, value){
   $("#"+name).text(value);
 }
 
-function update_all_information(){
+function updateAllInformation(){
   let value;
 
-  value = count_connections();
-  update_information_display("connection_count", value);
+  value = countConnections();
+  updateInformationDisplay("connection-count", value);
 
-  value = count_leaves();
-  update_information_display("leaf_count", value);
+  value = countLeaves();
+  updateInformationDisplay("leaf-count", value);
 
   if(tree){
-    $("#tree_information").css("display", "block");
+    $("#tree-information").css("display", "block");
   } else {
-    $("#tree_information").css("display", "none");
+    $("#tree-information").css("display", "none");
   }
 }
 
-function show_options_screen(){
-  $("#options_modal").removeClass("transparent");
+function showOptionsScreen(){
+  $("#options-modal").removeClass("transparent");
 }
 
-function hide_options_screen(){
-  $("#options_modal").addClass("transparent");
+function hideOptionsScreen(){
+  $("#options-modal").addClass("transparent");
 }

@@ -8,102 +8,102 @@
 	</head>
 
 	<body>
-		<section id="main_container">
+		<section id="main-container">
 			<section id="control">
-				<button class="settings_button" onclick="show_options_screen()">
-					<img class="settings_button_image" src="images/cog.png" alt="settings button">
+				<button class="settings-button" onclick="showOptionsScreen()">
+					<img class="settings-button-image" src="images/cog.png" alt="settings button">
 				</button>
-				<section class="control_group">
-					<button class="control_header collapsible active">Graph settings</button>
-					<div class="control_button_group">
-						<div class="label_input_pair">
-							<label class="control_label number_input_label" for="node_number_input">Node number:</label>
-							<input class="control_number_input" id="node_number_input" type="number" name="node_number_input" value="6" min="0" onchange="update_node_number()">
+				<section class="control-group">
+					<button class="control-header collapsible active">Graph settings</button>
+					<div class="control-button-group">
+						<div class="label-input-pair">
+							<label class="control-label number-input-label" for="node-number-input">Node number:</label>
+							<input class="control-number-input" id="node-number-input" type="number" name="node-number-input" value="6" min="0" onchange="updateNodeNumber()">
 						</div>
-						<button class="control_button" type="button" onclick="fill_graph()">Fill graph</button>
-						<button class="control_button" type="button" onclick="clear_graph()">Clear graph</button>
-						<div class="checkbox_pair">
-							<input class="control_checkbox" id="directed_checkbox" type="checkbox" checked onclick="toggle_directed()">
-							<label class="control_label" for="directed_checkbox">Directed</label>
+						<button class="control-button" type="button" onclick="fillGraph()">Fill graph</button>
+						<button class="control-button" type="button" onclick="clearGraph()">Clear graph</button>
+						<div class="checkbox-pair">
+							<input class="control-checkbox" id="directed-checkbox" type="checkbox" checked onclick="toggleDirected()">
+							<label class="control-label" for="directed-checkbox">Directed</label>
 						</div>
-						<div class="checkbox_pair">
-							<input class="control_checkbox" id="tree_checkbox" type="checkbox" onclick="toggle_tree()">
-							<label class="control_label" for="tree_checkbox">Tree</label>
+						<div class="checkbox-pair">
+							<input class="control-checkbox" id="tree-checkbox" type="checkbox" onclick="toggleTree()">
+							<label class="control-label" for="tree-checkbox">Tree</label>
 						</div>
 						<div>
-							<label for="tree_root_input">Tree root:</label>
-							<input class="control_number_input" id="tree_root_input" type="number" name="tree_root_input" value="1" min="1" onchange="update_tree_root()">
+							<label for="tree-root-input">Tree root:</label>
+							<input class="control-number-input" id="tree-root-input" type="number" name="tree-root-input" value="1" min="1" onchange="updateTreeRoot()">
 						</div>
 					</div>
 				</section>
-				<section class="control_group" id="matrix_group">
-					<button class="control_header collapsible">Neighbour matrix</button>
-					<section id="matrix_section">
+				<section class="control-group" id="matrix-group">
+					<button class="control-header collapsible">Neighbor matrix</button>
+					<section id="matrix-section">
 					</section>
 				</section>
-				<section class="control_group">
-					<button class="control_header collapsible active">Information</button>
-					<section id="information_section">
-						<div class="information_group" id="general_information">
-							<p class="information_header">General information:</p>
-							<p>Connection count: <span id="connection_count"></span></p>
+				<section class="control-group">
+					<button class="control-header collapsible active">Information</button>
+					<section id="information-section">
+						<div class="information-group" id="general-infomration">
+							<p class="information-header">General information:</p>
+							<p>Connection count: <span id="connection-count"></span></p>
 						</div>
-						<div class="information_group" id="tree_information">
-							<p class="information_header">Tree information:</p>
-							<p>Leaf count: <span id="leaf_count"></span></p>
+						<div class="information-group" id="tree-information">
+							<p class="information-header">Tree information:</p>
+							<p>Leaf count: <span id="leaf-count"></span></p>
 						</div>
 					</section>
 				</section>
 			</section>
 
-			<canvas id="mainCanvas" height="700" width="700">
+			<canvas id="main-canvas" height="700" width="700">
 			</canvas>
 
-			<div class="modal transparent" id="options_modal">
-				<section class="options_screen">
-					<button class="x_button" onclick="hide_options_screen()">&times;</button>
-					<h1 class="options_header">Options</h1>
-					<h2 class="options_header">Graph options</h2>
-					<section class="options_section">
-						<div class="option_group">
-							<div class="label_input_pair">
-								<label for="graph_radius_input">Graph radius:</label>
-								<input type="number" name="graph_radius_input" id="graph_radius_input" value="200" min="0" onchange="update_graph_radius()">
+			<div class="modal transparent" id="options-modal">
+				<section class="options-screen">
+					<button class="x-button" onclick="hideOptionsScreen()">&times;</button>
+					<h1 class="options-header">Options</h1>
+					<h2 class="options-header">Graph options</h2>
+					<section class="options-section">
+						<div class="option-group">
+							<div class="label-input-pair">
+								<label for="graph-radius-input">Graph radius:</label>
+								<input type="number" name="graph-radius-input" id="graph-radius-input" value="200" min="0" onchange="updateGraphRadius()">
 							</div>
 							<p class="note">The distance between the center of the canvas and the nodes, in pixels</p>
 						</div>
-						<div class="option_group">
-							<div class="label_input_pair">
-									<label for="node_radius">Node radius:</label>
-									<input type="number" name="node_radius" id="node_radius_input" value="40" min="0" onchange="update_node_radius()">
+						<div class="option-group">
+							<div class="label-input-pair">
+									<label for="node-radius">Node radius:</label>
+									<input type="number" name="node-radius" id="node-radius-input" value="40" min="0" onchange="updateNodeRadius()">
 							</div>
 							<p class="note">The radius of the circles representing nodes, in pixels</p>
 						</div>
-						<div class="option_group">
-							<div class="label_input_pair">
-									<label for="node_font_size">Node font size:</label>
-									<input type="number" name="node_font_size" id="node_font_size_input" value="30" min="0" onchange="update_node_font_size()">
+						<div class="option-group">
+							<div class="label-input-pair">
+									<label for="node-font-size">Node font size:</label>
+									<input type="number" name="node-font-size" id="node-font-size-input" value="30" min="0" onchange="updateNodeFontSize()">
 							</div>
 							<p class="note">The font size of the numbers on the nodes, in pixels</p>
 						</div>
 					</section>
-					<h2 class="options_header">Color options</h2>
-					<section class="options_section color_options">
-							<div class="label_input_pair">
-								<label for="arrow_color">Arrow color:</label>
-								<input type="color" name="arrow_color" id="arrow_color_input" value="#ff7777">
+					<h2 class="options-header">Color options</h2>
+					<section class="options-section color-options">
+							<div class="label-input-pair">
+								<label for="arrow-color">Arrow color:</label>
+								<input type="color" name="arrow-color" id="arrow-color-input" value="#ff7777">
 							</div>
-							<div class="label_input_pair">
-								<label for="node_color">Node color:</label>
-								<input type="color" name="node_color" id="node_color_input" value="#33eeee" onchange="update_colors()">
+							<div class="label-input-pair">
+								<label for="node-color">Node color:</label>
+								<input type="color" name="node-color" id="node-color-input" value="#33eeee" onchange="updateColors()">
 							</div>
-							<div class="label_input_pair">
-								<label for="node_number_color">Node number color:</label>
-								<input type="color" name="node_number_color" id="node_number_color_input" value="#ffffff" onchange="update_colors()">
+							<div class="label-input-pair">
+								<label for="node-number-color">Node number color:</label>
+								<input type="color" name="node-number-color" id="node-number-color-input" value="#ffffff" onchange="updateColors()">
 							</div>
-							<div class="label_input_pair">
-								<label for="line_color">Line color:</label>
-								<input type="color" name="line_color" id="line_color_input" value="#000000" onchange="update_colors()">
+							<div class="label-input-pair">
+								<label for="line-color">Line color:</label>
+								<input type="color" name="line-color" id="line-color-input" value="#000000" onchange="updateColors()">
 							</div>
 					</section>
 				</section>

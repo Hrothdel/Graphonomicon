@@ -1,183 +1,183 @@
-function initialize_to_size(last_index, current_index){
+function initializeToSize(last_index, current_index){
   for(let i = last_index; i < current_index; i++){
-    if(!neighbour_matrix[i]){
-      neighbour_matrix[i] = [];
+    if(!neighbor_matrix[i]){
+      neighbor_matrix[i] = [];
 
       for(let j = 0; j <= i; j++){
-        neighbour_matrix[i][j] = 0;
-        neighbour_matrix[j][i] = 0;
+        neighbor_matrix[i][j] = 0;
+        neighbor_matrix[j][i] = 0;
       }
     }
   }
 }
 
-function update_neighbour_matrix(last_number){
-  initialize_to_size(last_number, node_number);
+function updateNeighborMatrix(last_number){
+  initializeToSize(last_number, node_number);
 
-  $("#matrix_container").remove();
-  add_matrix();
+  $("#matrix-container").remove();
+  addMatrix();
 }
 
-function toggle_matrix_position(x, y){
-  if(neighbour_matrix[x][y]){
-    neighbour_matrix[x][y] = 0;
+function toggleMatrixPosition(x, y){
+  if(neighbor_matrix[x][y]){
+    neighbor_matrix[x][y] = 0;
   } else{
-    neighbour_matrix[x][y] = 1;
+    neighbor_matrix[x][y] = 1;
   }
 }
 
-function update_button_matrix_position(x, y){
-  $(`#matrix_button-${x*node_number+y+1}`).text(neighbour_matrix[x][y]);
+function updateButtonMatrixPosition(x, y){
+  $(`#matrix-button-${x * node_number + y + 1}`).text(neighbor_matrix[x][y]);
 }
 
-function toggle_connection(x, y){
-  toggle_matrix_position(x, y);
+function toggleConnection(x, y){
+  toggleMatrixPosition(x, y);
 
-  update_button_matrix_position(x, y);
+  updateButtonMatrixPosition(x, y);
 
   if(!directed){
-    toggle_matrix_position(y, x);
-    update_button_matrix_position(y, x);
+    toggleMatrixPosition(y, x);
+    updateButtonMatrixPosition(y, x);
   }
 
   draw();
 }
 
-function draw_arrow(node_a, node_b,
+function drawArrow(node_a, node_b,
                     arrow_size, arrow_angle,
                     arrow_distance, percentage){
-  let start   = angle_increment * node_a,
-      end     = angle_increment * node_b,
-      firstX, firstY,
-      secondX, secondY;
+  let start = angle_increment * node_a,
+      end   = angle_increment * node_b,
+      first_x, first_y,
+      second_x, second_y;
 
-  [firstX, firstY] = move_at_angle(middleX, middleY, start, distance),
-  [secondX, secondY] = move_at_angle(middleX, middleY, end, distance);
+  [first_x, first_y] = moveAtAngle(MIDDLE_X, MIDDLE_Y, start, distance),
+  [second_x, second_y] = moveAtAngle(MIDDLE_X, MIDDLE_Y, end, distance);
 
-  let line_angle = Math.atan2(secondY-firstY, secondX-firstX);
+  let line_angle = Math.atan2(second_y - first_y, second_x - first_x);
 
   if(percentage){
-    let deltaX = secondX - firstX,
-        deltaY = secondY - firstY,
-        line_length = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    let delta_x = second_x - first_x,
+        delta_y = second_y - first_y,
+        line_length = Math.sqrt(delta_x * delta_x + delta_y * delta_y);
     arrow_distance = line_length * (arrow_distance / 100);
   }
 
-  let point1X, point1Y,
-      point2X, point2Y,
-      point3X, point3Y;
+  let point1_x, point1_y,
+      point2_x, point2_y,
+      point3_x, point3_y;
 
-  [point1X, point1Y] = move_at_angle(firstX, firstY,
+  [point1_x, point1_y] = moveAtAngle(first_x, first_y,
                         line_angle, arrow_distance);
-  [point2X, point2Y] = move_at_angle(point1X, point1Y,
+  [point2_x, point2_y] = moveAtAngle(point1_x, point1_y,
                         line_angle + arrow_angle, arrow_size * (-1));
-  [point3X, point3Y] = move_at_angle(point1X, point1Y,
+  [point3_x, point3_y] = moveAtAngle(point1_x, point1_y,
                         line_angle - arrow_angle, arrow_size * (-1));
 
   ctx.strokeStyle = arrow_color;
   ctx.beginPath();
-  ctx.moveTo(point1X, point1Y);
-  ctx.lineTo(point2X, point2Y);
-  ctx.moveTo(point1X, point1Y);
-  ctx.lineTo(point3X, point3Y);
+  ctx.moveTo(point1_x, point1_y);
+  ctx.lineTo(point2_x, point2_y);
+  ctx.moveTo(point1_x, point1_y);
+  ctx.lineTo(point3_x, point3_y);
 
   ctx.stroke();
 }
 
-function draw_graph_arrows(){
+function drawGraphArrows(){
   for(let i = 0; i < node_number; i++){
     for(let j = 0; j < node_number; j++){
-      if(neighbour_matrix[i][j]){
-        draw_arrow(i, j, 20, Math.PI/6, 65, true);
+      if(neighbor_matrix[i][j]){
+        drawArrow(i, j, 20, Math.PI/6, 65, true);
       }
     }
   }
 }
 
-function draw_graph_connections(){
-  let bezierOffset = 80;
+function drawGraphConnections(){
+  let bezier_offset = 80;
   if(directed){
-    bezierOffset = 0;
+    bezier_offset = 0;
   }
 
   for(let i = 0; i < node_number; i++){
     for(let j = 0; j < node_number; j++){
-      if(neighbour_matrix[i][j] == 1){
-        connect_nodes(i+1, j+1, bezierOffset);
+      if(neighbor_matrix[i][j] == 1){
+        connectNodes(i+1, j+1, bezier_offset);
       }
     }
   }
 }
 
-function draw_graph_nodes(){
-  let posX, posY, angle;
+function drawGraphNodes(){
+  let pos_x, pos_y, angle;
 
   ctx.lineWidth = 5;
-  ctx.font = fontSize + "px Arial";
+  ctx.font = font_size + "px Arial";
 
   angle = 0;
 
   for(let i = 0; i < node_number; i++){
-    [posX, posY] = move_at_angle(middleX, middleY, angle, distance);
+    [pos_x, pos_y] = moveAtAngle(MIDDLE_X, MIDDLE_Y, angle, distance);
 
     ctx.beginPath();
 
     ctx.fillStyle = node_color;
-    ctx.arc(posX, posY, radius, 0, Math.PI*2);
+    ctx.arc(pos_x, pos_y, radius, 0, Math.PI*2);
     ctx.fill();
     ctx.fillStyle = node_number_color;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillText(i+1, posX, posY);
+    ctx.fillText(i+1, pos_x, pos_y);
 
     angle += angle_increment;
   }
 }
 
-function draw_graph(){
+function drawGraph(){
   angle_increment = Math.PI*2/node_number;
-  draw_graph_connections();
+  drawGraphConnections();
   if(directed){
-    draw_graph_arrows();
+    drawGraphArrows();
   }
-  draw_graph_nodes();
+  drawGraphNodes();
 }
 
-function connect_nodes(node_a, node_b, bezierOffset){
+function connectNodes(node_a, node_b, bezier_offset){
   node_a--;
   node_b--;
   let start = angle_increment * node_a,
       end = angle_increment * node_b,
-      firstX, firstY,
-      secondX, secondY,
-      cp1X, cp1Y, //control points
-      cp2X, cp2Y;
+      first_x, first_y,
+      second_x, second_y,
+      cp1_x, cp1_y, //control points
+      cp2_x, cp2_y;
 
-  [firstX, firstY] = move_at_angle(middleX, middleY, start, distance);
-  [secondX, secondY] = move_at_angle(middleX, middleY, end, distance);
-  [cp1X, cp1Y] = move_at_angle(middleX, middleY, start,
-                  distance - bezierOffset);
-  [cp2X, cp2Y] = move_at_angle(middleX, middleY, end,
-                  distance - bezierOffset);
+  [first_x, first_y] = moveAtAngle(MIDDLE_X, MIDDLE_Y, start, distance);
+  [second_x, second_y] = moveAtAngle(MIDDLE_X, MIDDLE_Y, end, distance);
+  [cp1_x, cp1_y] = moveAtAngle(MIDDLE_X, MIDDLE_Y, start,
+                  distance - bezier_offset);
+  [cp2_x, cp2_y] = moveAtAngle(MIDDLE_X, MIDDLE_Y, end,
+                  distance - bezier_offset);
 
   ctx.strokeStyle = line_color;
   ctx.beginPath();
 
-  ctx.moveTo(firstX, firstY);
-  ctx.bezierCurveTo(cp1X, cp1Y, cp2X, cp2Y, secondX, secondY);
+  ctx.moveTo(first_x, first_y);
+  ctx.bezierCurveTo(cp1_x, cp1_y, cp2_x, cp2_y, second_x, second_y);
 
   ctx.stroke();
 }
 
-function convert_directed_connections(){
+function convertDirectedConnections(){
   for(let i = 0; i < node_number; i++){
     for(let j = i; j < node_number; j++){
-      if(neighbour_matrix[i][j] || neighbour_matrix[j][i]){
-        neighbour_matrix[i][j] = 1;
-        neighbour_matrix[j][i] = 1;
+      if(neighbor_matrix[i][j] || neighbor_matrix[j][i]){
+        neighbor_matrix[i][j] = 1;
+        neighbor_matrix[j][i] = 1;
 
-        update_button_matrix_position(i, j);
-        update_button_matrix_position(j, i);
+        updateButtonMatrixPosition(i, j);
+        updateButtonMatrixPosition(j, i);
       }
     }
   }
