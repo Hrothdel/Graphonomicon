@@ -67,7 +67,9 @@ function drawTree(){
       ctx.arc(pos_x, pos_y, radius, 0, Math.PI*2);
       ctx.fill();
       ctx.fillStyle = node_number_color;
-      ctx.fillText(tree_rows[i][j]+1, pos_x-font_size/3, pos_y+font_size/3);
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(tree_rows[i][j]+1, pos_x, pos_y);
 
       pos_x += horizontal_spacing;
     }
