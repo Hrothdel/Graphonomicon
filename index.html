@@ -15,7 +15,7 @@
 				</button>
 				<section class="control-group">
 					<button class="control-header collapsible active">Graph settings</button>
-					<div class="control-button-group">
+					<div class="control-button-group collapsible-content">
 						<div class="label-input-pair">
 							<label class="control-label number-input-label" for="node-number-input">Node number:</label>
 							<input class="control-number-input" id="node-number-input" type="number" name="node-number-input" value="6" min="0" onchange="updateNodeNumber()">
@@ -38,12 +38,12 @@
 				</section>
 				<section class="control-group" id="matrix-group">
 					<button class="control-header collapsible">Neighbor matrix</button>
-					<section id="matrix-section">
+					<section class="collapsible-content" id="matrix-section">
 					</section>
 				</section>
 				<section class="control-group">
 					<button class="control-header collapsible active">Information</button>
-					<section id="information-section">
+					<section id="information-section collapsible-content">
 						<div class="information-group" id="general-infomration">
 							<p class="information-header">General information:</p>
 							<p>Connection count: <span id="connection-count"></span></p>

@@ -46,8 +46,6 @@
 	justify-content: center;
 
 	width: 100%;
-
-	margin-bottom: 10%;
 }
 
 .control-button {
@@ -93,6 +91,8 @@
 .collapsible {
 	cursor: pointer;
 	white-space: nowrap;
+
+	margin-top: 5%;
 }
 
 .collapsible:after {
@@ -101,6 +101,10 @@
 
 .collapsible.active:after {
 	content: ' \02796'; /* minus sign */
+}
+
+.collapsible-content {
+	padding: 2% 0;
 }
 
 .collapsed {
