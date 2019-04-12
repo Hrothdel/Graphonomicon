@@ -3,6 +3,8 @@
 	flex-flow: row-reverse wrap-reverse;
 	align-items: flex-end;
 	justify-content: space-around;
+
+	font-family: sans-serif;
 }
 
 #control {
@@ -55,10 +57,13 @@
 }
 
 .control-header {
-	background-color: #fff;
 	border: none;
 
 	font-size: 2em;
+}
+
+.control-header:active {
+	border: none;
 }
 
 .control-number-input {
@@ -89,7 +94,6 @@
 }
 
 .collapsible {
-	cursor: pointer;
 	white-space: nowrap;
 
 	margin-top: 5%;
@@ -131,9 +135,22 @@
 	height: auto;
 }
 
+button {
+	cursor: pointer;
+
+	background-color: #fff;
+
+	border: 2px outset #eee;
+	border-radius: 20px;
+}
+
 button:focus {
 	outline: none;
 	box-shadow: 0 0 4pt 2pt red;
+}
+
+button:active {
+	border-style: inset;
 }
 
 button::-moz-focus-inner {
@@ -154,6 +171,10 @@ button::-moz-focus-inner {
 
 .x-button:hover {
 	color: #aaa;
+}
+
+.x-button:active {
+	border: none;
 }
 
 .modal {
