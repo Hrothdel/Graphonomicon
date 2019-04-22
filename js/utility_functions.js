@@ -20,8 +20,8 @@ function createInitializedMatrix(rows, columns, initial_value){
 function generateMatrixCode(){
   let binary_code = "";
 
-  for(let i = 0; i < node_number; i++){
-    for(let j = 0; j < node_number; j++){
+  for(let i = node_number - 1; i >= 0; i--){
+    for(let j = node_number - 1; j >= 0; j--){
       binary_code += neighbor_matrix[i][j];
     }
   }

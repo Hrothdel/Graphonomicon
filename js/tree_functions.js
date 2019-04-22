@@ -17,7 +17,7 @@ function drawTreeConnection(parent, child,
 
   ctx.beginPath();
 
-  ctx.lineWidth = 5;
+  ctx.lineWidth = connection_width; 
 
   ctx.moveTo(parent_x, parent_y);
   ctx.lineTo(child_x, child_y);

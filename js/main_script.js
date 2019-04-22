@@ -21,8 +21,14 @@ let arrow_color = "#f77",
     node_color = "#3ee",
     node_number_color = "#fff";
 
+let connection_width = 5;
+
 neighbor_matrix = createInitializedMatrix(
                     node_number, node_number, 0);
+
+if(location.hash.length){
+  evaluateStateCode();
+}
 
 addMatrix();
 addListeners();

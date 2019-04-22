@@ -112,7 +112,6 @@ function drawGraphConnections(){
 function drawGraphNodes(){
   let pos_x, pos_y, angle;
 
-  ctx.lineWidth = 5;
   ctx.font = font_size + "px Arial";
 
   angle = 0;
@@ -161,6 +160,7 @@ function connectNodes(node_a, node_b, bezier_offset){
                   distance - bezier_offset);
 
   ctx.strokeStyle = line_color;
+  ctx.lineWidth = connection_width;
   ctx.beginPath();
 
   ctx.moveTo(first_x, first_y);

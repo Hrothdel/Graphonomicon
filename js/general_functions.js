@@ -117,8 +117,33 @@ function updateStateHash(){
   let code = generateStateCode();
 
   location.hash = code;
+}
 
-  console.log(Math.ceil(Math.sqrt(parseInt(code, 36))));
+function setMatrix(code){
+  initializeToSize(node_number);
+  console.log(code);
+
+  for(let i = code.length - 1; i >= 0; i--){
+    let index = code.length - 1 - i;
+    let row = Math.floor(index / node_number),
+        column = index % node_number;
+    neighbor_matrix[row][column] = parseInt(code[i], 2);
+  }
+
+  console.log(neighbor_matrix);
+}
+
+function evaluateStateCode(){
+  let code_array = location.hash.substr(1).split("_");
+
+  console.log(code_array);
+  node_number = parseInt(code_array[0], 36);
+  directed = parseInt(code_array[1], 2);
+  tree = parseInt(code_array[2], 2);
+  root = parseInt(code_array[3], 36);
+
+  console.log(code_array[4]);
+  setMatrix(parseInt(code_array[4], 36).toString(2))
 }
 
 function updateNodeNumber(){
