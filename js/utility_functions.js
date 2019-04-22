@@ -16,3 +16,25 @@ function createInitializedMatrix(rows, columns, initial_value){
 
   return matrix;
 }
+
+function generateMatrixCode(){
+  let binary_code = "";
+
+  for(let i = 0; i < node_number; i++){
+    for(let j = 0; j < node_number; j++){
+      binary_code += neighbor_matrix[i][j];
+    }
+  }
+
+  return parseInt(binary_code, 2).toString(36);
+}
+
+function generateStateCode(){
+  let code = node_number.toString(36) +
+            "_" + directed % 2 +
+            "_" + tree % 2 +
+            "_" + root.toString(36) +
+            "_" + generateMatrixCode();
+
+  return code;
+}

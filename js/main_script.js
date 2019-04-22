@@ -29,4 +29,4 @@ addListeners();
 
 setDefaultValues();
 
-draw();
+update();

@@ -56,7 +56,7 @@ function toggleDirected(){
     directed = 1;
   }
 
-  draw();
+  update();
 }
 
 function toggleTree(){
@@ -66,7 +66,7 @@ function toggleTree(){
   }
   tree = !tree;
 
-  draw();
+  update();
 }
 
 function fillGraph(){
@@ -80,7 +80,7 @@ function fillGraph(){
     }
   }
 
-  draw();
+  update();
 }
 
 function clearGraph(){
@@ -92,7 +92,7 @@ function clearGraph(){
     }
   }
 
-  draw();
+  update();
 }
 
 function draw(){
@@ -108,13 +108,26 @@ function draw(){
   updateAllInformation();
 }
 
+function update(){
+  updateStateHash();
+  draw();
+}
+
+function updateStateHash(){
+  let code = generateStateCode();
+
+  location.hash = code;
+
+  console.log(Math.ceil(Math.sqrt(parseInt(code, 36))));
+}
+
 function updateNodeNumber(){
   let last_number = node_number;
 
   node_number = Number($("#node-number-input").val());
 
   updateNeighborMatrix(last_number);
-  draw();
+  update();
 }
 
 function updateTreeRoot(){
@@ -127,7 +140,7 @@ function updateTreeRoot(){
 
   changeRoot(input - 1);
 
-  draw();
+  update();
 }
 
 function updateGraphRadius(){
@@ -135,7 +148,7 @@ function updateGraphRadius(){
 
   distance = input;
 
-  draw();
+  update();
 }
 
 function updateNodeRadius(){
@@ -143,7 +156,7 @@ function updateNodeRadius(){
 
   radius = input;
 
-  draw();
+  update();
 }
 
 function updateNodeFontSize(){
@@ -151,7 +164,7 @@ function updateNodeFontSize(){
 
   font_size = input;
 
-  draw();
+  update();
 }
 
 function updateColors(){
@@ -168,7 +181,7 @@ function updateColors(){
   input = $("#arrow-color-input").val();
   arrow_color = input;
 
-  draw();
+  update();
 }
 
 function countConnections(){

@@ -40,7 +40,7 @@ function toggleConnection(x, y){
     updateButtonMatrixPosition(y, x);
   }
 
-  draw();
+  update();
 }
 
 function drawArrow(node_a, node_b,
