@@ -27,6 +27,6 @@ neighbor_matrix = createInitializedMatrix(
 addMatrix();
 addListeners();
 
-setDefaultValues();
+updateInputFields();
 
 update();

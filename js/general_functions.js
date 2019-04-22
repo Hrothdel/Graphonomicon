@@ -25,18 +25,18 @@ function addListeners(){
   });
 }
 
-function setDefaultValues(){
-  $("#node-number-input").val(6);
-  $("#tree-root-input").val(1);
+function updateInputFields(){
+  $("#node-number-input").val(node_number);
+  $("#tree-root-input").val(root + 1);
   $("#tree-checkbox").prop("checked", tree);
   $("#directed-checkbox").prop("checked", directed);
-  $("#graph-radius-input").val(200);
-  $("#node-radius-input").val(40);
-  $("#node-font-size-input").val(30);
-  $("#node-color-input").val("#33eeee");
-  $("#line-color-input").val("#000000");
-  $("#node-number-color-input").val("#ffffff");
-  $("#arrow-color-input").val("#ff7777");
+  $("#graph-radius-input").val(distance);
+  $("#node-radius-input").val(radius);
+  $("#node-font-size-input").val(font_size);
+  $("#node-color-input").val(node_color);
+  $("#line-color-input").val(line_color);
+  $("#node-number-color-input").val(node_number_color);
+  $("#arrow-color-input").val(arrow_color);
 }
 
 function updateCheckboxState(id, value){
