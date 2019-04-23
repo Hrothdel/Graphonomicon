@@ -16,10 +16,10 @@ let tree = 0, directed = 1;
 let root = 0, tree_rows, parents = [],
     children = [], tree_position;
 
-let arrow_color = "#f77",
-    line_color = "#000",
-    node_color = "#3ee",
-    node_number_color = "#fff";
+let arrow_color = "#ff7777",
+    line_color = "#000000",
+    node_color = "#33eeee",
+    node_number_color = "#ffffff";
 
 let connection_width = 5;
 
