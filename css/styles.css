@@ -42,7 +42,7 @@
 	align-items: center;
 }
 
-.control-button-group {
+.control-elements {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -175,6 +175,10 @@ button::-moz-focus-inner {
 
 .x-button:active {
 	border: none;
+}
+
+textarea {
+	font-size: 1.3em;
 }
 
 .modal {

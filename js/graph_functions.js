@@ -43,6 +43,16 @@ function toggleConnection(x, y){
   update();
 }
 
+function setConnection(x, y, state){
+  neighbor_matrix[x][y] = state;
+  updateButtonMatrixPosition(x, y);
+
+  if(!directed){
+    neighbor_matrix[y][x] = state;
+    updateButtonMatrixPosition(y, x);
+  }
+}
+
 function drawArrow(node_a, node_b,
                     arrow_size, arrow_angle,
                     arrow_distance, percentage){

@@ -38,3 +38,23 @@ function generateStateCode(){
 
   return code;
 }
+
+function getFirstNumber(input){
+  let output = "", trash = "", index = 0;
+
+  while(index < input.length &&
+        isNaN(parseInt(input[index], 10))){
+    trash += input[index];
+
+    index++;
+  }
+
+  while(index < input.length &&
+        !isNaN(parseInt(input[index], 10))){
+    output += input[index];
+
+    index ++;
+  }
+
+  return [output, trash];
+}

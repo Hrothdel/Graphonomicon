@@ -141,6 +141,28 @@ function evaluateStateCode(){
   setMatrix(parseInt(code_array[4], 36).toString(2))
 }
 
+function evaluateConnections(){
+  let input = $("#connections-textarea").val(),
+      x, y, trash;
+
+  while(input.length){
+    [x, trash] = getFirstNumber(input);
+    input = input.substr(x.length + trash.length);
+
+    [y, trash] = getFirstNumber(input);
+    input = input.substr(y.length + trash.length);
+
+    x = parseInt(x) - 1;
+    y = parseInt(y) - 1;
+
+    if(!isNaN(x) && !isNaN(y)){
+      setConnection(x, y, 1);
+    }
+  }
+
+  update();
+}
+
 function updateNodeNumber(){
   let last_number = node_number;
 
