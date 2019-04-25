@@ -167,6 +167,26 @@ function clearConnections(){
   $("#connections-textarea").val("");
 }
 
+function writeConnections(){
+  let output = "";
+
+  for(let i = 0; i < node_number; i++){
+    let line = "";
+    for(let j = 0; j < node_number; j++){
+      if(neighbor_matrix[i][j]){
+        line += `(${i + 1}, ${j + 1}) `;
+      }
+    }
+
+    output += line.trim();
+    if(line.length){
+      output += "\n";
+    }
+  }
+
+  $("#connections-textarea").val(output.trim());
+}
+
 function updateNodeNumber(){
   let last_number = node_number;
 
