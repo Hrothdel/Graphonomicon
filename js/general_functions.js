@@ -163,6 +163,10 @@ function evaluateConnections(){
   update();
 }
 
+function clearConnections(){
+  $("#connections-textarea").val("");
+}
+
 function updateNodeNumber(){
   let last_number = node_number;
 

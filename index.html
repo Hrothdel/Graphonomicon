@@ -45,7 +45,10 @@
 					<button class="control-header collapsible">Connections</button>
 					<section class="control-elements collapsible-content">
 						<textarea id="connections-textarea" name="connections" rows="8" cols="60"></textarea>
-						<button class="control-button" type="button" name="apply-connections" onclick="evaluateConnections()">Apply</button>
+						<div class="control-elements-group">
+							<button class="control-button" type="button" name="apply-connections" onclick="evaluateConnections()">Apply</button>
+							<button class="control-button" type="button" name="clear-connections" onclick="clearConnections()">Clear</button>
+						</div>
 					</section>
 				</section>
 				<section class="control-group">
