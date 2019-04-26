@@ -155,7 +155,7 @@ function evaluateConnections(){
     x = parseInt(x) - 1;
     y = parseInt(y) - 1;
 
-    if(!isNaN(x) && !isNaN(y)){
+    if((!isNaN(x) && !isNaN(y)) && (x < node_number && y < node_number)){
       setConnection(x, y, 1);
     }
   }
