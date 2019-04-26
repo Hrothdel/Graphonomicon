@@ -171,8 +171,15 @@ function writeConnections(){
   let output = "";
 
   for(let i = 0; i < node_number; i++){
-    let line = "";
-    for(let j = 0; j < node_number; j++){
+    let line = "", column_start;
+
+    if(directed){
+      column_start = 0;
+    } else{
+      column_start = i + 1;
+    }
+
+    for(let j = column_start; j < node_number; j++){
       if(neighbor_matrix[i][j]){
         line += `(${i + 1}, ${j + 1}) `;
       }
