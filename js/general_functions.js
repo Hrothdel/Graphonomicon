@@ -5,7 +5,21 @@ function addCollapsibleListeners(){
     let sibling = elements[i].nextElementSibling;
 
     $(elements[i]).click(function(){
-      $(sibling).toggleClass("collapsed");
+      // chrome text fitting problem
+      if($(sibling).hasClass("collapsed")){
+        $(sibling).removeClass("collapsed");
+        $(sibling).children().each(function() {
+          $(this).children('button').each(function(){
+            let element = this;
+            setTimeout(function(){
+              $(element).css("width", "100%");
+              $(element).css("width", "auto");
+            }, 0);
+          })
+        });
+      } else {
+        $(sibling).addClass("collapsed");
+      }
       $(this).toggleClass("active");
     });
 
