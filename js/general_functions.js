@@ -134,7 +134,7 @@ function updateStateHash(){
 }
 
 function setMatrix(code){
-  initializeToSize(node_number);
+  initializeToSize(0, node_number);
 
   for(let i = code.length - 1; i >= 0; i--){
     let index = code.length - 1 - i;
