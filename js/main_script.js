@@ -16,9 +16,9 @@ let tree = 0, directed = 1;
 let root = 0, tree_rows, parents = [],
     children = [], tree_position;
 
-let arrow_color = "#ff7777",
-    line_color = "#000000",
-    node_color = "#33eeee",
+let arrow_color = "#eac5af",
+    line_color = "#ffffff",
+    node_color = "#336666",
     node_number_color = "#ffffff";
 
 let connection_width = 5;
