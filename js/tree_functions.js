@@ -17,12 +17,24 @@ function drawTreeConnection(parent, child,
 
   ctx.beginPath();
 
-  ctx.lineWidth = connection_width; 
+  ctx.lineWidth = connection_width;
 
   ctx.moveTo(parent_x, parent_y);
   ctx.lineTo(child_x, child_y);
 
   ctx.stroke();
+}
+
+function scaleVerticalSpacing(original_spacing){
+  let row_number = tree_rows.length;
+
+  if(row_number * radius * 2 +
+     (row_number - 1) * original_spacing > HEIGHT){
+    return (HEIGHT - (row_number * radius * 2)) /
+            (row_number - 1);
+  } else {
+    return original_spacing;
+  }
 }
 
 function drawRowConnections(row, vertical_padding, horizontal_padding,
@@ -41,7 +53,7 @@ function drawRowConnections(row, vertical_padding, horizontal_padding,
 function drawTree(){
   let pos_x, pos_y,
       vertical_padding, horizontal_padding
-      vertical_spacing = 130,
+      vertical_spacing = scaleVerticalSpacing(130),
       horizontal_spacing = 120;
 
   vertical_padding = (HEIGHT - radius * 2 * tree_rows.length -
