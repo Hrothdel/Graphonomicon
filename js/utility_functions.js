@@ -17,6 +17,37 @@ function createInitializedMatrix(rows, columns, initial_value){
   return matrix;
 }
 
+function convert2to32(code){
+  let chunk, index, result = "";
+  index = Math.max(0, code.length - 5);
+  while(index >= 0){
+    chunk = code.substr(index, 5);
+    index -= 5;
+
+    while(chunk.length < 5){
+      chunk = "0" + chunk;
+    }
+
+    result = parseInt(chunk, 2).toString(32) + result;
+  }
+
+  return result;
+}
+
+function convert32to2(code){
+  let result = "", chunk;
+
+  for(let i = 0; i < code.length; i++){
+    chunk = parseInt(code[i], 32).toString(2);
+    while(chunk.length < 5){
+      chunk = "0" + chunk;
+    }
+    result += chunk;
+  }
+
+  return result;
+}
+
 function generateMatrixCode(){
   let binary_code = "";
 
@@ -26,7 +57,7 @@ function generateMatrixCode(){
     }
   }
 
-  return parseInt(binary_code, 2).toString(36);
+  return convert2to32(binary_code);
 }
 
 function generateStateCode(){

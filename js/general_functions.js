@@ -152,7 +152,7 @@ function evaluateStateCode(){
   tree = parseInt(code_array[2], 2);
   root = parseInt(code_array[3], 36);
 
-  setMatrix(parseInt(code_array[4], 36).toString(2))
+  setMatrix(convert32to2(code_array[4]));
 }
 
 function evaluateConnections(){
